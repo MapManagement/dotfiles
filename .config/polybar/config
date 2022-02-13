@@ -1,0 +1,311 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #99000000
+background-alt = #000000
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #28a33f
+secondary = #289fa3
+alert = #bd2c40
+icon = #444444
+
+[bar/example]
+font-0 = "MesloLGS NF:size=11;1"
+font-1 = "Material:size=20;4"
+
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 35
+offset-x = 0%
+offset-y = .5%
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = ${colors.primary}
+
+border-size = 0
+border-color = ${colors.primary}
+
+padding = 3
+
+module-margin-left = 4
+module-margin-right = 4
+
+modules-left = root-dir vm-dir date memory cpu kvm rsync spotify pulseaudio
+modules-center = 
+modules-right = 
+
+tray-position = left
+tray-padding = 2
+tray-background = ${colors.background}
+
+;override-redirect = true
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/spotify]
+type = custom/script
+interval = 1
+
+format-prefix = %{T2}%{T-}
+;format-prefix-background = ${colors.primary}
+format-prefix-foreground = #ffffff
+format-prefix-padding = 0
+;format-underline = ${colors.primary}
+format = <label> 
+
+exec = python /home/jan/.config/polybar/spotify_mod.py -f ' {song} - {artist}' -q 
+
+[module/rsync]
+type = custom/script
+interval = 1
+
+format-prefix = %{T2} %{T-}
+;format-prefix-background = ${colors.primary}
+format-prefix-foreground = #ffffff
+format-prefix-padding = 0
+;format-underline = ${colors.primary}
+format = <label>
+
+exec = python /home/jan/.config/polybar/mod-rsync.py
+
+[module/kvm]
+type = custom/script
+interval = 1
+
+format-prefix = %{T2}%{T-}
+;format-prefix-background = ${colors.primary}
+format-prefix-foreground = #ffffff
+format-prefix-padding = 0
+;format-underline = ${colors.primary}
+format = <label>
+
+exec = python /home/jan/.config/polybar/mod-kvm.py
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %layout%%{T5}%{T-}
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/root-dir]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = ${colors.primary}
+
+
+label-mounted = %{T2}%{T-} %used% / %total%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/vm-dir]
+type = internal/fs
+interval = 25
+
+mount-0 = /run/media/jan/VMs
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = ${colors.primary}
+
+
+label-mounted = %{T2}%{T-} %used% / %total%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format = <label>
+format-prefix = %{T2}%{T-}
+;format-prefix-background = ${colors.primary}
+format-prefix-foreground = #ffffff
+format-prefix-padding = 0
+;format-underline = ${colors.primary}
+
+label = %{T1}%percentage:2%%%{T-}
+;label-background = ${colors.background}
+label-foreground = #ffffff
+label-padding = 0
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = <label>
+format-prefix = %{T2}%{T-}
+;format-prefix-background = ${colors.primary}
+format-prefix-foreground = #ffffff
+format-prefix-padding = 0
+;format-underline = ${colors.primary}
+
+label = %gb_used%/%gb_total%
+label-background = ${colors.background}
+label-foreground = #ffffff
+label-padding = 1
+
+
+[module/eth]
+type = internal/network
+interface = virbr0
+interval = 3.0
+
+;format-connected-underline = ${colors.primary}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+time = "%a, %d %b %H:%M"
+
+format = <label>
+format-prefix = 
+;format-prefix-background =${colors.primary}
+format-prefix-foreground =  #ffffff
+format-prefix-padding = 0
+;format-underline = ${colors.primary}
+
+label-background =${colors.background}
+label-foreground = #ffffff
+label-padding = 1
+label = %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = %{T2}%{T-} %percentage%%
+label-volume-foreground = ${root.foreground}
+
+label-muted =  muted
+label-muted-foreground = #666
+
+bar-volume-width = 20
+;bar-volume-foreground-0 = #00ff00
+;bar-volume-foreground-1 = #00ff55
+;bar-volume-foreground-2 = #00ffaa
+;bar-volume-foreground-3 = #00ffff
+;bar-volume-foreground-4 = #00aaff
+;bar-volume-foreground-5 = #0055ff
+;bar-volume-foreground-6 = #0000ff
+;bar-volume-gradient = true
+
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = ■
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+;[module/temperature]
+;type = internal/temperature
+;thermal-zone = 0
+;warn-temperature = 60
+
+;format = <ramp> <label>
+;format-underline = #f50a4d
+;format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+;label = %temperature-c%
+;label-warn = %temperature-c%
+;label-warn-foreground = ${colors.secondary}
+
+;ramp-0 = 
+;ramp-1 = 
+;ramp-2 = 
+;ramp-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
