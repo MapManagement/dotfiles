@@ -13,7 +13,7 @@
 
 ## GNOME theming
 - [Kimi](https://github.com/EliverLara/Kimi)
-- [Vimix cursors](https://duckduckgo.com/?q=vimix+cursors&t=newext&atb=v285-1&ia=web)
+- [Vimix cursors](https://github.com/vinceliuice/Vimix-cursors)
 - [Inverse Icon Theme](https://github.com/yeyushengfan258/Inverse-icon-theme)
 
 ## VSC themes
