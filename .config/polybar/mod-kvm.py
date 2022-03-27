@@ -7,8 +7,9 @@ virsh_cmd = [
     "list", "--name"
     ]
 result = subprocess.check_output(virsh_cmd)
+decoded_result = result.decode("utf-8").strip("\n").replace("\n", ", ")
 
-if result.isspace:
-    result = b"None"
+if decoded_result is None:
+    decoded_result = "None"
 
-print(" "+ (result.decode("utf-8")))
+print(" " + decoded_result)
