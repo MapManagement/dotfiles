@@ -1,20 +1,31 @@
 # Dotfiles
-## Dependencies
+
+All my configuration files are stored within this repository. If you want to see my whole setup you
+need to visit [this one](https://github.com/MapManagement/dev-setup). It also includes an Ansible
+playbook to automatically install and configure all packages that I use. When executing mentioned
+playbook, it'll copy the whole repository and apply the stored configuration files.
+
+## Terminal related
+
+- [Alacritty](https://github.com/alacritty/alacritty)
 - [zsh](https://github.com/zsh-users/zsh)
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+    - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+        - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+        - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+        - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+        - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
+- [Neovim](https://github.com/neovim/neovim)
+    - [vim-plug](https://github.com/junegunn/vim-plug)
+        - [telescope.nvim]https://github.com/nvim-telescope/telescope.nvim)
+        - [nerdtree](https://github.com/preservim/nerdtree)
+        - [coc.nvim](https://github.com/neoclide/coc.nvim)
+
+## Desktop related
+
+- [i3-gaps](https://github.com/Airblader/i3)
 - [Polybar](https://github.com/polybar/polybar)
-    - using [polybar-spotify](https://github.com/Jvanrhijn/polybar-spotify)
-- [NerdFonts](https://www.nerdfonts.com/font-downloads)
-    - Meslo
+- [mate-panel](https://github.com/mate-desktop/mate-panel)
+- [rofi](https://github.com/davatorium/rofi)
+- [feh](https://github.com/derf/feh)
 
-## Extra software
-- [Spicetify](https://github.com/khanhas/spicetify-cli)
-- [Pop Shell](https://github.com/pop-os/shell)
-
-## GNOME theming
-- [Kimi](https://github.com/EliverLara/Kimi)
-- [Vimix cursors](https://github.com/vinceliuice/Vimix-cursors)
-- [Inverse Icon Theme](https://github.com/yeyushengfan258/Inverse-icon-theme)
-
-## VSC themes
-- [Darcula Theme](https://marketplace.visualstudio.com/items?itemName=rokoroku.vscode-theme-darcula)
+## Additional packages
