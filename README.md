@@ -16,7 +16,7 @@ playbook, it'll copy the whole repository and apply the stored configuration fil
         - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 - [Neovim](https://github.com/neovim/neovim)
     - [vim-plug](https://github.com/junegunn/vim-plug)
-        - [telescope.nvim]https://github.com/nvim-telescope/telescope.nvim)
+        - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
         - [nerdtree](https://github.com/preservim/nerdtree)
         - [coc.nvim](https://github.com/neoclide/coc.nvim)
 
