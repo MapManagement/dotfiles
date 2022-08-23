@@ -1,0 +1,226 @@
+---
+- name: Dev Setup
+  hosts: localhost
+  connection: local
+  vars:
+    is_desktop: "yes"
+    external_drives: "no"
+  tasks:
+
+#=====================================
+# INSTALL PACKAGES
+#=====================================
+  
+    - name: Install standard software
+      become: true
+      pacman:
+        name:
+          - curl
+          - wget
+          - git
+
+    - name: Install development software
+      become: true
+      pacman:
+        name:
+          # TOOLS
+          - neovim
+          - zsh
+          - dbeaver
+          - tmux
+          - alacritty
+          - github-cli
+          # LANGUAGES
+          - dotnet-sdk
+          - mono-msbuild
+          - python
+          - rust
+          - jdk-openjdk
+          - nodejs
+
+    - name: Install customization software
+      become: true
+      pacman:
+        name:
+          - polybar
+          - mate-panel
+          - rofi
+          - feh
+
+    - name: Install oh-my-zsh
+      shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    - name: Install additional software
+      become: true
+      pacman:
+        name:
+          # DAILY TASKS
+          - firefox
+          - chromium
+          - libreoffice-still
+          - okular
+          - thunar
+          - gimp
+          - keepassxc
+          # BACKGROUND
+          #- spotify
+          - discord
+
+    - name: Install virtualization software
+      become: true
+      pacman:
+        name:
+          - virt-manager
+          - qemu
+          - libvirt
+          - ovmf
+          - bridge-utils
+      when: is_desktop == "yes"
+
+#=====================================
+# TIDY SETUP
+#=====================================
+
+    - name: Change default shell to zsh
+      become: true
+      user:
+        name: "{{ ansible_user_id }}"
+        shell: /bin/zsh
+        
+    - name: Create Coding directory
+      file:
+        path: ~/Coding
+        state: directory
+
+    - name: Create .config directory
+      file:
+        path: ~/.config
+        state: directory
+
+    - name: Create fonts directory
+      file:
+        path: ~/.local/share/fonts
+        state: directory
+        recurse: true
+    - name: Create Downloads directory
+      file:
+        path: ~/Downloads
+        state: directory
+
+    - name: Create Wallpapers directory
+      file:
+        path: ~/Pictures/Wallpapers
+        state: directory
+        recurse: true
+
+    - name: Create vms directory
+      file:
+        path: /vms
+        state: directory
+
+    - name: Create external directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        recurse: true
+        with_items: 
+          - ~/External/Home
+          - ~/External/Pub
+          - ~/External/Cloud
+      when: external_drives == "yes"
+
+#=====================================
+# GET CUSTOMIZATIONS
+#=====================================
+
+    #==== INSTALL FONTS ====
+
+    - name: Download Meslo Nerd Font
+      get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/L-DZ/Regular/complete/Meslo%20LG%20L%20DZ%20Regular%20Nerd%20Font%20Complete.ttf
+        dest: ~/.local/share/fonts
+
+    - name: Install Font Awesome
+      become: true
+      pacman:
+        name:
+          - ttf-font-awesome
+
+    #==== ZSH-PLUGINS ====
+
+    - name: Install powerlevel10k
+      git:
+        repo: https://github.com/romkatv/powerlevel10k.git
+        dest: ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+    - name: Install zsh-autosuggestions
+      git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
+        dest: ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+    - name: Install zsh-syntax-highlighting
+      git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+        dest: ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+    - name: Install zsh-history-substring-search
+      git:
+        repo: https://github.com/zsh-users/zsh-history-substring-search.git
+        dest: ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+
+    #==== SPICETIFY ====
+    
+    - name: Create Spicetify directory
+      file:
+        path: ~/.config/spicetify/Themes
+        recurse: true
+
+    - name: Download Spicetify
+      shell: curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+
+    - name: Download Spicetify themes
+      git:
+        repo: https://github.com/spicetify/spicetify-themes.git
+        dest: ~/.config/spicetify/spicetify-themes
+
+    - name: Move Spicetify theme to config directory
+      shell: cp -r * ~/.config/spicetify/spicetify-themes ~/.config/spicetify/Themes
+
+    - name: Apply Spicetify theme
+      shell: spicetify config current_theme default
+
+    #==== DOTFILES ====
+
+    - name: Install dotfiles
+      git:
+        repo: https://github.com/MapManagement/dotfiles.git
+        dest: ~/
+
+    #==== DOWNLOAD AND INSTALL VIM PLUGINS ====
+
+    - name: Install vim-plug plugins
+      shell: nvim +PlugInstall +qa
+
+#=====================================
+# COPY LOCAL FILES
+#=====================================
+
+    - name: Copy keyboard module
+      become: true
+      copy:
+        src: files/modprobe/hid_apple.conf
+        dest: /etc/modprobe.d/
+        owner: root
+        group: root
+        mode: 0644
+      when: is_desktop == true
+
+    - name: Load keyboard module
+      become: true
+      modprobe:
+        name: hid_apple
+        state: present
+      when: is_dektop == true
+
+    - name: Regenerate initramfs
+      shell: mkinitcpio -P
