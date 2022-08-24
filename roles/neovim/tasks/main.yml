@@ -1,0 +1,33 @@
+---
+- block:
+    - name: Install Neovim package:
+      become: true
+      pacman:
+        name: nvim
+
+    - name: Create Neovim directory
+      file:
+        path: ~/.config/nvim
+        state: directory
+
+    - name: Copy init files
+      copy:
+        src: ../files/
+        dest: ~/.config/nvim/
+
+    - name: Create vim-plug directories
+      file:
+        path: ~/.local/share/nvim/site/autoload
+        state: directory
+        recurse: true
+
+    - name: Download vim-plug
+      get_url:
+        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        dest: ~/.local/share/nvim/site/autoload/plug.vim
+
+    - name: Install plugins
+      shell: nvim +PlugInstall +qa
+
+
+

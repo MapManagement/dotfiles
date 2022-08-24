@@ -1,0 +1,12 @@
+---
+- block:
+  - name: Install packages
+    become: true
+    pacman:
+      name:
+        - virt-manager
+        - qemu
+        - libvirt
+        - ovmf
+        - bridge-utils
+      when: is_desktop == "yes"

@@ -1,0 +1,12 @@
+---
+- block:
+    - name: Install languages and framework
+      become: true
+      pacman:
+        name:
+          - dotnet-sdk
+          - mono-msbuild
+          - python
+          - rust
+          - jdk-openjdk
+          - nodejs

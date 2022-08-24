@@ -1,0 +1,6 @@
+---
+- blocks:
+    - name: Install Rofi
+      become: true
+      pacman:
+        name: rofi

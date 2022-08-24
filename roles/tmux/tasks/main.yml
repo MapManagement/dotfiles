@@ -1,0 +1,6 @@
+---
+- blocks:
+    - name: Install tmux
+      become: true
+      pacman:
+        name: tmux

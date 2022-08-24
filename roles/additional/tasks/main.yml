@@ -1,0 +1,14 @@
+---
+- block:
+    - name: Install additional packages:
+      become: true
+      pacman:
+        name:
+          - firefox
+          - chromium
+          - libreoffice-still
+          - okular
+          - thunar
+          - gimp
+          - keepassxc
+          - discord

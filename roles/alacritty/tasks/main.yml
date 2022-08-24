@@ -1,0 +1,16 @@
+---
+- block:
+    - name: Install Alacritty package
+      become: true
+      pacman:
+        name: alacritty
+
+    - name: Create Alacritty directory
+      file:
+        path: ~/.config/alacritty
+        state: directory
+
+    - name: Copy Alacritty configuration file
+      copy:
+        src: ../files/alacritty.yml
+        dest: ~/.config/alacritty/alacritty.yml

@@ -1,0 +1,8 @@
+---
+- blocks:
+    - name: Install git
+      become: true
+      pacman:
+        name:
+          - git
+          - github-cli

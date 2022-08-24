@@ -1,0 +1,11 @@
+---
+- blocks:
+    - name: Install Polybar
+      become: true
+      pacman:
+        name: Polybar
+
+    - name: Copy configuration file
+      copy:
+        src: ../files/config.ini
+        dest: ~/.config/polybar/config.ini

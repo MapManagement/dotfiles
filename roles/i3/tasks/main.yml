@@ -1,0 +1,18 @@
+---
+- block:
+    - name: Install i3 packages
+      become: true
+      pacman:
+        name:
+          - i3-gaps
+          - i3blocks
+          - i3-lock
+
+    - name: Set x11-keymap
+      become: true
+      shell: localectl set-x11-keymap de
+
+    - name: Copy i3 configuration file
+      copy:
+        src: ../files/config
+        dest: ~/.config/i3/config
