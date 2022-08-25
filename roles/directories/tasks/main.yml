@@ -1,0 +1,40 @@
+---
+- block:
+    - name: Create Coding directory
+      file:
+        path: ~/Coding
+        state: directory
+
+    - name: Create .config directory
+      file:
+        path: ~/.config
+        state: directory
+
+    - name: Create Downloads directory
+      file:
+        path: ~/Downloads
+        state: directory
+
+    - name: Create Wallpapers directory
+      file:
+        path: ~/Pictures/Wallpapers
+        state: directory
+        recurse: true
+
+    - name: Create vms directory
+      become: true
+      file:
+        path: /vms
+        state: directory
+
+    - name: Create external directories
+      file:
+        path: "{{ item }}"
+        state: directory
+        recurse: true
+        with_item:
+          - ~/External/Home
+          - ~/External/Pub
+          - ~/External/Cloud
+        when: external_drives= "yes"
+

@@ -1,0 +1,6 @@
+---
+- block:
+    - name: Install Feh
+      become: true
+      pacman:
+        name: feh

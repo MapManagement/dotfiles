@@ -1,5 +1,11 @@
 ---
 - blocks:
+    - name: Create fonts directory
+      file:
+        path: ~/.local/share/fonts
+        state: directory
+        recurse: true
+
     - name: Install Font Awesome
       become: true
       pacman:
