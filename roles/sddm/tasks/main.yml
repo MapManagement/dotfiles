@@ -1,0 +1,13 @@
+---
+- block:
+  - name: Install SDDM
+    become: true
+    pacman:
+      name: sddm
+
+  - name: Enable SDDM in systemd
+    become: true
+    systemd:
+      name: sddm
+      enabled: yes
+

@@ -271,7 +271,7 @@ mode "resize" {
 #bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/wallpapers/fhd*
+exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 exec_always --no-startup-id mate-panel
 exec_always --no-startup-id polybar
 

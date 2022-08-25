@@ -9,13 +9,16 @@
     - ansible.builtin.include_role:
         name: "{{ item }}"
       loop:
-        - additional
-        - alacritty
         - directories
+        - standard
+        - sddm
+        - i3
+        - git
+        - additional
+        - zsh
+        - alacritty
         - feh
         - fonts
-        - git
-        - i3
         - languages
         - mate-panel
         - modprobe
@@ -23,7 +26,5 @@
         - polybar
         - rofi
         - spotify
-        - standard
         - tmux
         - virtualization
-        - zsh
