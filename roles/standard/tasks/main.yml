@@ -6,3 +6,4 @@
         name:
           - wget
           - curl
+          - fakeroot

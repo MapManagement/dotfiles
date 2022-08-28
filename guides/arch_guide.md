@@ -140,19 +140,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Install additional packages
 
-Install SDDM:
-
-```sh
-pacman -S sddm
-systemctl enable sddm
-```
-
-Install i3:
-
-```sh
-pacman -S i3-gaps i3blocks i3lock
-```
-
 Set X11-Keymap:
 ```sh
 localectl set-x11-keymap de
