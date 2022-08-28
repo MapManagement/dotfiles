@@ -15,3 +15,8 @@
       get_url:
         url: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/L-DZ/Regular/complete/Meslo%20LG%20L%20DZ%20Regular%20Nerd%20Font%20Complete.ttf
         dest: ~/.local/share/fonts
+
+    - name: Install powerline-fonts
+      become: true
+      pacman:
+        name: powerline-fonts

@@ -6,3 +6,4 @@
         name:
           - git
           - github-cli
+          - lazygit

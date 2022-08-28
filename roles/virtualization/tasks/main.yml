@@ -9,4 +9,5 @@
         - libvirt
         - ovmf
         - bridge-utils
+        - barrier
       when: is_desktop == "yes"
