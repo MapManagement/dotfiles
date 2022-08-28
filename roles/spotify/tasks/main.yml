@@ -1,11 +1,11 @@
 ---
-- blocks:
+- block:
     - name: Install Spotify
       become: true
       pacman:
         name: spotify-launcher
 
-    - name: Download Spicetify:
+    - name: Download Spicetify
       shell: curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
 
     - name: Create Spicetify directory
@@ -15,7 +15,7 @@
 
     - name: Download Spicetify Themes
       git:
-        repo: repo: https://github.com/spicetify/spicetify-themes.git
+        repo: https://github.com/spicetify/spicetify-themes.git
         dest: ~/.config/spicetify/spicetify-themes
 
     - name: Move themes to configuration directory

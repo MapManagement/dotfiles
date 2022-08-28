@@ -36,5 +36,5 @@
           - ~/External/Home
           - ~/External/Pub
           - ~/External/Cloud
-        when: external_drives= "yes"
+      when: external_drives == "yes"
 

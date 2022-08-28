@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: Install additional packages:
+    - name: Install additional packages
       become: true
       pacman:
         name:

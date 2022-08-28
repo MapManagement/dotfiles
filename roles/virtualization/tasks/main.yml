@@ -10,4 +10,4 @@
         - ovmf
         - bridge-utils
         - barrier
-      when: is_desktop == "yes"
+    when: is_desktop == "yes"

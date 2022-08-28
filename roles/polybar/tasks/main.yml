@@ -1,9 +1,14 @@
 ---
-- blocks:
+- block:
+    - name: Create Polybar configuration directory
+      file:
+        path: ~/.config/polybar
+        state: directory
+
     - name: Install Polybar
       become: true
       pacman:
-        name: Polybar
+        name: polybar
 
     - name: Copy configuration file
       copy:

@@ -6,7 +6,7 @@
         name:
           - i3-gaps
           - i3blocks
-          - i3-lock
+          - i3lock
 
     - name: Set x11-keymap
       become: true

@@ -1,6 +1,6 @@
 ---
-- blocks:
-    - name: Create fonts directory
+- block:
+    - name: Creater user fonts directory
       file:
         path: ~/.local/share/fonts
         state: directory
@@ -9,14 +9,40 @@
     - name: Install Font Awesome
       become: true
       pacman:
-        name: ttf-font-Awesome
+        name: ttf-font-awesome
 
-    - name: Download Meslo Nerd Font
+    - name: Create Meslo LGS Nerd Font directory
+      file:
+        path: ~/.local/share/fonts/ttf/MesloLGS NF
+        state: directory
+        recurse: true
+
+    - name: Download Meslo LGS Nerd Font
       get_url:
-        url: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/L-DZ/Regular/complete/Meslo%20LG%20L%20DZ%20Regular%20Nerd%20Font%20Complete.ttf
-        dest: ~/.local/share/fonts
+        url: "{{ item.url }}"
+        dest: "~/.local/share/fonts/ttf/MesloLGS\ NF/{{ item.name }}"
+      with_items:
+        - {
+            url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf,
+            name: 'MesloLGS NF Regular.ttf'
+          }
+        - {
+            url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf,
+            name: 'MesloLGS NF Bold.ttf'
+          }
+        - {
+            url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf,
+            name: 'MesloLGS NF Italic.ttf'
+          }
+        - {
+            url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf,
+            name: 'MesloLGS NF Bold Italic.ttf'
+          }
 
     - name: Install powerline-fonts
       become: true
       pacman:
         name: powerline-fonts
+
+    - name: Reload font cache
+      shell: fc-cache
