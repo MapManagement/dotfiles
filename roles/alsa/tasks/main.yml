@@ -1,0 +1,11 @@
+---
+- block:
+    - name: Install audio packages
+      become: true
+      pacman:
+        name:
+          - alsa-utils
+          - pulseaudio
+          - pulseaudio-alsa
+          - qemu-audio-alsa
+          - pavucontrol
