@@ -1,5 +1,10 @@
 ---
 - block:
+    - name: Create i3 directory
+      file:
+        path: ~/.config/i3
+        state: directory
+
     - name: Install i3 packages
       become: true
       pacman:

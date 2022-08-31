@@ -32,7 +32,7 @@
         path: "{{ item }}"
         state: directory
         recurse: true
-        with_item:
+        with_items:
           - ~/External/Home
           - ~/External/Pub
           - ~/External/Cloud

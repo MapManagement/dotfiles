@@ -1,0 +1,16 @@
+---
+- block:
+    - name: Create picom directory
+      file:
+        path: ~/.config/picom
+        state: directory
+
+    - name: Install picom
+      become: true
+      pacman:
+        name: picom
+
+    - name: Copy configuration file
+      copy:
+        src: ../files/picom.conf
+        dest: ~/.config/picom/picom.conf

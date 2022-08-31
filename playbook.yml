@@ -14,6 +14,7 @@
         - sddm
         - i3
         - git
+        - picom
         - additional
         - zsh
         - alacritty

@@ -9,5 +9,13 @@
         - libvirt
         - ovmf
         - bridge-utils
+        - swtpm
         - barrier
     when: is_desktop == "yes"
+
+  - name: Enable libvirt service
+    become: true
+    systemd:
+      name: libvirtd
+      enabled: yes
+
