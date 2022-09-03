@@ -10,6 +10,12 @@
       pacman:
         name: polybar
 
+    - name: Copy start script
+      copy:
+        src: ../files/start_polybar.sh
+        dest: ~/.config/polybar/start_polybar.sh
+        mode: +x
+
     - name: Copy configuration file
       copy:
         src: ../files/config.ini

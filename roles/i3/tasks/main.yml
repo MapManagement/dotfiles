@@ -17,6 +17,12 @@
       become: true
       shell: localectl set-x11-keymap de
 
+    - name: Copy monitor script
+      copy:
+        src: ../files/set_monitors.sh
+        dest: ~/.config/i3/set_monitors.sh
+        mode: +x
+
     - name: Copy i3 configuration file
       copy:
         src: ../files/config
