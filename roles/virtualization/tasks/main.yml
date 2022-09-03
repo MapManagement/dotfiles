@@ -10,6 +10,7 @@
         - ovmf
         - bridge-utils
         - swtpm
+        - dnsmasq
         - barrier
     when: is_desktop == "yes"
 
@@ -19,3 +20,27 @@
       name: libvirtd
       enabled: yes
 
+  - name: Create libvirt group
+    become: true
+    name: libvirt
+    state: present
+
+  - name: Add user to libvirt group
+    become: true
+    user:
+      name: {{ user }} 
+      group: libvirt
+      append: yes
+
+  - name: Copy libvirtd configuration file
+    become: true
+    copy:
+      src: ../files/libvirtd.conf
+      dest: /etc/libvirt/libvirtd.conf
+
+  - name: Restart libvirtd service
+    become: true
+    systemd:
+      name: libvirtd
+      state: restarted
+      daemon_reload: yes
