@@ -22,8 +22,16 @@
         src: ../files/set_monitors.sh
         dest: ~/.config/i3/set_monitors.sh
         mode: +x
+      when: multi_monitor == "yes"
 
-    - name: Copy i3 configuration file
+    - name: Copy multiple monitors i3 configuration file
+      copy:
+        src: ../files/multi_monitor_config
+        dest: ~/.config/i3/config
+      when: multi_monitor == "yes"
+
+    - name: Copy default i3 configuration file
       copy:
         src: ../files/config
         dest: ~/.config/i3/config
+      when: multi_monitor != "yes"
