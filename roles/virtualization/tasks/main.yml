@@ -12,6 +12,7 @@
         - swtpm
         - dnsmasq
         - barrier
+        - qemu-audio-pa
     when: is_desktop == "yes"
 
   - name: Enable libvirt service

@@ -7,6 +7,9 @@ whole installation. To easen the process of setting up the machine after the bas
 created an Ansible playbook to automate the installation and following configuration/customization
 of every package I need.
 
+To start the installation process, simply just start the ``setup_machine.py`` script. It is going to
+ask you some stuff about the purpose of the machine. Your answers impact some tasks of the playbook.
+
 ## Development
 
 - [Neovim](https://github.com/neovim/neovim)
@@ -15,6 +18,8 @@ of every package I need.
 - [tmux](https://github.com/tmux/tmux)
 - [Alacritty](https://github.com/alacritty/alacritty)
 - [GitHub CLI](https://cli.github.com/manual/)
+- [Lazygit](https://github.com/jesseduffield/lazygit)
+- [tmux](https://github.com/tmux/tmux)
 
 ## Languages / Frameworks
 - [.NET](https://github.com/dotnet/core)
@@ -30,6 +35,7 @@ of every package I need.
 - [mate-panel](https://github.com/mate-desktop/mate-panel)
 - [Rofi](https://github.com/davatorium/rofi)
 - [Feh](https://github.com/derf/feh)
+- [picom](https://github.com/yshui/picom)
 
 ## Daily work
 
@@ -41,7 +47,8 @@ of every package I need.
 - [GIMP](https://github.com/GNOME/gimp)
 - [KeePassXC](https://github.com/keepassxreboot/keepassxc)
 - [Discord](https://discord.com/)
-- [Spotify](https://www.spotify.com/de/)
+- [Spotify](https://www.spotify.com)
+- [htop](https://github.com/htop-dev/htop)
 
 ## Virtualization
 
@@ -61,6 +68,12 @@ of every package I need.
     - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
     - [nerdtree](https://github.com/preservim/nerdtree)
     - [coc.nvim](https://github.com/neoclide/coc.nvim)
+
+## System
+- [ALSA](https://alsa-project.org/wiki/Main_Page)
+    - [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+    - [PulseAudio Volume Control](https://freedesktop.org/software/pulseaudio/pavucontrol/)
+- 
 
 ## VFIO
 
