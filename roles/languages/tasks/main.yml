@@ -7,6 +7,8 @@
           - dotnet-sdk
           - mono-msbuild
           - python
+          - python-pip
+          - python-virtualenv
           - rust
           - jdk-openjdk
           - nodejs

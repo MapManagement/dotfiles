@@ -32,6 +32,9 @@ bindsym $mod+Return exec  --no-startup-id /usr/bin/alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# take a screenshot and copy it to the clipboard
+bindsym $mod+Shift+s exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
+
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -show drun -columns 3"
 
@@ -86,7 +89,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+#bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent

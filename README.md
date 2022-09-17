@@ -49,6 +49,8 @@ ask you some stuff about the purpose of the machine. Your answers impact some ta
 - [Discord](https://discord.com/)
 - [Spotify](https://www.spotify.com)
 - [htop](https://github.com/htop-dev/htop)
+- [maim](https://github.com/naelstrof/maim)
+- [xclip](https://github.com/astrand/xclip)
 
 ## Virtualization
 
