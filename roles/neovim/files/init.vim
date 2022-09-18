@@ -15,11 +15,21 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'OmniSharp/omnisharp-vim'
-    Plug 'doums/darcula'
+    Plug 'catppuccin/nvim', {'as': 'catpuccin'}
 call plug#end()
 
-set termguicolors
-colorscheme darcula    
+let g:catpuccin_flavour = "mocha"
+
+lua << EOF
+require("catppuccin").setup(
+    {
+            transparent_background = true
+    }
+)
+EOF
+
+colorscheme catppuccin
+let g:transparent_background = 1
 
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
