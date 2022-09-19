@@ -32,11 +32,11 @@ bindsym $mod+Return exec  --no-startup-id /usr/bin/alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# take a screenshot and copy it to the clipboard
-bindsym $mod+Shift+s exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
-
 # start program launcher
 bindsym $mod+d exec --no-startup-id "rofi -show drun -columns 3"
+
+# take a screenshot and copy it to the clipboard
+bindsym $mod+Shift+s exec --no-startup-id "maim -s | xclip -selection clipboard -t image/png"
 
 # focus_follows_mouse no
 
@@ -89,7 +89,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-#bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -110,6 +110,17 @@ bindsym $mod+Ctrl+Left workspace prev
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
 
+# Set workspaces
+workspace 1
+workspace 2
+workspace 3
+workspace 4
+workspace 5
+workspace 6
+workspace 7
+workspace 8
+workspace 9
+
 # Switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -120,6 +131,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
+
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -200,7 +212,6 @@ mode "resize" {
 #bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-# exec_always --no-startup-id ~/.config/i3/set_monitors.sh
 exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 exec_always --no-startup-id mate-panel
 exec_always --no-startup-id ~/.config/polybar/start_polybar.sh
