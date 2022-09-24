@@ -1,6 +1,0 @@
----
-- block:
-    - name: Install mate-panel
-      become: true
-      pacman:
-        name: mate-panel

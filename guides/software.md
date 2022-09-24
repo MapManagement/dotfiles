@@ -24,7 +24,6 @@
 ## Customization
 
 - [Polybar](https://github.com/polybar/polybar)
-- [mate-panel](https://github.com/mate-desktop/mate-panel)
 - [Rofi](https://github.com/davatorium/rofi)
 - [Feh](https://github.com/derf/feh)
 - [picom](https://github.com/yshui/picom)
