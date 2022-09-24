@@ -67,6 +67,7 @@
     - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
     - [catpuccin](https://github.com/catppuccin/nvim)
     - [omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)
+- [catppuccin-rofi](https://github.com/catppuccin/rofi/tree/main/deathemonic)
 
 ## System
 - [ALSA](https://alsa-project.org/wiki/Main_Page)

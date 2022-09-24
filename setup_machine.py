@@ -1,3 +1,5 @@
+import subprocess
+
 ansible_parameters = {
     "is_desktop": False,
     "external_storage": False,
@@ -28,6 +30,8 @@ def execute_ansible_playbook():
             parameter = f'{key}="yes"'
             ansible_command.append("-e")
             ansible_command.append(parameter)
+
+    subprocess.run(ansible_command)
 
 if __name__ == "__main__":
     read_user_inputs()

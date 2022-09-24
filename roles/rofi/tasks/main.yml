@@ -4,3 +4,24 @@
       become: true
       pacman:
         name: rofi
+
+    - name: Create rofi configuration directory
+      file:
+        path: ~/.config/rofi
+        state: directory
+
+    - name: Clone Catpuccin theme from GitHub
+      git:
+        repo: https://github.com/catppuccin/rofi
+        dest: ~/Downloads
+
+    - name: Copy theme to configuration directory
+      shell: cp -r  ~/Downloads/rofi/deathemonic/* ~/.config/rofi
+
+    - name: Replace launcher script with modified variant
+      copy:
+        src: ../files/launcher
+        dest: ~/.config/rofi/bin/launcher
+
+    - name: Delete cloned repository
+      shell: rm -rf ~/Downloads/rofi
