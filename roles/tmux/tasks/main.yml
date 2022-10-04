@@ -4,3 +4,19 @@
       become: true
       pacman:
         name: tmux
+
+    - name: Create plugin directory
+      file:
+        path: ~/.config/tmux/plugins/tpm
+        state: directory
+        recurse: true
+
+    - name: Install TPM
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: ~/.config/tmux/plugins/tpm
+
+    - name: Copy tmux configuration
+      copy:
+        src: ../files/tmux.conf
+        dest: ~/.tmux.conf
