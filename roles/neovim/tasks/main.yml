@@ -21,13 +21,13 @@
         state: directory
         recurse: true
 
-    - name: Download vim-plug
+    - name: Download packer.nvim
       get_url:
-        url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        dest: ~/.local/share/nvim/site/autoload/plug.vim
+        url: https://github.com/wbthomason/packer.nvim
+        dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
     - name: Install plugins
-      shell: nvim +PlugInstall +qa
+      shell: nvim +PackerInstall +qa
 
 
 
