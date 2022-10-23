@@ -1,0 +1,11 @@
+---
+- block:
+    - name: Install Catpuccin theme
+
+
+    - name: Move GTK-2.0 settings
+      file:
+        path: ~/.config/i3
+        state: directory
+
+    - name: Move GTK-3.0 settings1

@@ -29,8 +29,11 @@ return require("packer").startup(function(use)
             "catppuccin/nvim",
             as = "catppuccin",
             config = function()
-                    vim.g.catppuccin_flavour = "mocha"
-                    require("catppuccin").setup()
+                    require("catppuccin").setup {
+						flavour = "mocha",
+						transparent_background = true,
+					}
+					vim.api.nvim_command("colorscheme catppuccin")
             end
     }
 
