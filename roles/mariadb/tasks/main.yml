@@ -1,0 +1,12 @@
+---
+- block:
+    - name: Install MariaDB
+      become: true
+      pacman:
+        - mariadb
+
+    - name: Enable MariaDB service
+      become: true
+      systemd:
+        name: mariadb
+        enabled: yes

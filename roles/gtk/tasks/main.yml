@@ -1,11 +1,22 @@
 ---
 - block:
-    - name: Install Catpuccin theme
+    - name: Download Catppuccin theme
+      get_url:
+        url: https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Macchiato.zip
+        dest: ~/Downloads/Catppuccin-Macchiato.zip
 
+    - name: Unzip theme
+      become: true
+      unarchive:
+        src: ~/Downloads/Catppuccin-Macchiato.zip
+        dest: /usr/share/themes/Catppuccin-Macchiato
 
-    - name: Move GTK-2.0 settings
+    - name: Create GTK-3.0 directory
       file:
-        path: ~/.config/i3
+        path: ~/.config/gtk-3.0
         state: directory
 
-    - name: Move GTK-3.0 settings1
+    - name: Copy GTK-3.0 settings
+      copy:
+        sec: ../files/settings.ini
+        dest: ~/.config/gtk-3.0/settings.ini
