@@ -31,3 +31,5 @@
         - tmux
         - virtualization
         - alsa
+        - mariadb
+        - gtk
