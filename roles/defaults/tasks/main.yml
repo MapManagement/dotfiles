@@ -1,0 +1,4 @@
+---
+- block:
+    - name: Set FireFox as default browser
+      shell: xdg-settings set default-web-browser firefox.desktop

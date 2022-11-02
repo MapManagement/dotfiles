@@ -8,3 +8,4 @@
           - curl
           - fakeroot
           - unzip
+          - nfs-utils

@@ -1,12 +1,8 @@
 ---
 - block:
-    - name: Download spotify-launcher
-      become: true
-      pacman:
-        name: spotify-launcher
-
     - name: Install Spotify
-      shell: spotify-launcher --no-exec
+      become: true
+      shell: yay -S spotify --noconfirm
 
     - name: Download Spicetify
       shell: curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh

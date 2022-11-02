@@ -6,9 +6,16 @@
         name:
           - dotnet-sdk
           - mono-msbuild
-          - python
-          - python-pip
-          - python-virtualenv
           - rust
           - jdk-openjdk
           - nodejs
+
+    - name: Install Python and correpsonding packages
+      become: true
+      pacman:
+        name:
+          - python
+          - python-pip
+          - python-virtualenv
+          - jupyterlab
+          - jupyter-notebook
