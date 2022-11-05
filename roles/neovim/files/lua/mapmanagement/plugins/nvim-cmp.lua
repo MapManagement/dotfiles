@@ -1,4 +1,4 @@
-return function()
+local function init()
 	local cmp = require 'cmp'
 	cmp.setup {
 		mapping = {
@@ -11,6 +11,14 @@ return function()
 	},
 	sources = {
 		{ name = 'nvim_lsp' },
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	}
 }
 end
+
+return {
+	init = init
+}

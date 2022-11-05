@@ -42,7 +42,7 @@ return require("packer").startup(function(use)
 	use {
 			"hrsh7th/nvim-cmp",
 			config = function()
-				require "mapmanagement.plugins.nvim-cmp"
+				require "mapmanagement.plugins.nvim-cmp".init()
 			end
 	}
 
@@ -53,7 +53,7 @@ return require("packer").startup(function(use)
 	use {
 			"neovim/nvim-lspconfig",
 			config = function()
-				require "mapmanagement.plugins.lspconfig"
+				require "mapmanagement.plugins.lspconfig".init()
 			end
 	}
 
