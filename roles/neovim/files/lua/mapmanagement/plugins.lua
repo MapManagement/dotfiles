@@ -7,11 +7,6 @@ return require("packer").startup(function(use)
             requires = { "nvim-tree/nvim-web-devicons" }
     }
 
-    use {
-			"neoclide/coc.nvim",
-			branch = "release"
-	}
-
     use "nvim-lua/plenary.nvim"
 
     use {
@@ -22,8 +17,6 @@ return require("packer").startup(function(use)
 
     use "vim-airline/vim-airline"
     use "vim-airline/vim-airline-themes"
-
-    use "OmniSharp/omnisharp-vim"
 
     use { 
             "catppuccin/nvim",
@@ -43,4 +36,25 @@ return require("packer").startup(function(use)
 		vim.api.nvim_command("colorscheme catppuccin")
 		end,
 	}
+
+	use "hrsh7th/cmp-nvim-lsp"
+
+	use {
+			"hrsh7th/nvim-cmp",
+			config = function()
+				require "mapmanagement.plugins.nvim-cmp"
+			end
+	}
+
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-cmdline"
+
+	use {
+			"neovim/nvim-lspconfig",
+			config = function()
+				require "mapmanagement.plugins.lspconfig"
+			end
+	}
+
 end)
