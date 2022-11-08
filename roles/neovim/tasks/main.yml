@@ -17,14 +17,15 @@
 
     - name: Create Packer directories
       file:
-        path: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+        path: ~/.local/share/nvim/site/pack/packer/start
         state: directory
         recurse: true
 
     - name: Download packer.nvim
-      get_url:
-        url: https://github.com/wbthomason/packer.nvim
+      git:
+        repo: https://github.com/wbthomason/packer.nvim
         dest: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+        depth: 1
 
     - name: Install plugins
       shell: nvim +PackerInstall +qa
