@@ -3,7 +3,8 @@
     - name: Install MariaDB
       become: true
       pacman:
-        - mariadb
+        name:
+          - mariadb
 
     - name: Enable MariaDB service
       become: true

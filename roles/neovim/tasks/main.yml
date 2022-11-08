@@ -15,9 +15,9 @@
         src: ../files/
         dest: ~/.config/nvim/
 
-    - name: Create vim-plug directories
+    - name: Create Packer directories
       file:
-        path: ~/.local/share/nvim/site/autoload
+        path: ~/.local/share/nvim/site/pack/packer/start/packer.nvim
         state: directory
         recurse: true
 

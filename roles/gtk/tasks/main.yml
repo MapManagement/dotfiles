@@ -5,6 +5,13 @@
         url: https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Macchiato.zip
         dest: ~/Downloads/Catppuccin-Macchiato.zip
 
+    - name: Create theme directory
+      become: true
+      file:
+        path: /usr/share/themes/Catppuccin-Macchiato
+        state: directory
+        recurse: true
+
     - name: Unzip theme
       become: true
       unarchive:
@@ -18,5 +25,5 @@
 
     - name: Copy GTK-3.0 settings
       copy:
-        sec: ../files/settings.ini
+        src: ../files/settings.ini
         dest: ~/.config/gtk-3.0/settings.ini

@@ -20,24 +20,29 @@
     systemd:
       name: libvirtd
       enabled: yes
+    when: is_desktop == "yes"
 
   - name: Create libvirt group
     become: true
-    name: libvirt
-    state: present
+    group:
+      name: libvirt
+      state: present
+    when: is_desktop == "yes"
 
   - name: Add user to libvirt group
     become: true
     user:
-      name: {{ user }} 
-      group: libvirt
+      name: "{{ user }}" 
+      groups: libvirt
       append: yes
+    when: is_desktop == "yes"
 
   - name: Copy libvirtd configuration file
     become: true
     copy:
       src: ../files/libvirtd.conf
       dest: /etc/libvirt/libvirtd.conf
+    when: is_desktop == "yes"
 
   - name: Restart libvirtd service
     become: true
@@ -45,3 +50,4 @@
       name: libvirtd
       state: restarted
       daemon_reload: yes
+    when: is_desktop == "yes"

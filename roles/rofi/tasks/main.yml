@@ -16,7 +16,7 @@
         dest: ~/Downloads
 
     - name: Copy theme to configuration directory
-      shell: cp -r  ~/Downloads/rofi/deathemonic/* ~/.config/rofi
+      shell: cp -r  ~/Downloads/deathemonic/* ~/.config/rofi
 
     - name: Replace launcher script with modified variant
       copy:

@@ -23,10 +23,10 @@ def convert_user_input(answer: str) -> bool:
     return answer == "y"
 
 def execute_ansible_playbook():
-    ansible_command = ["ansible-playbook", "-K"]
+    ansible_command = ["ansible-playbook", "-K", "playbook.yml"]
 
     for key in ansible_parameters.keys():
-        if ansible_parameters["key"]:
+        if ansible_parameters[key]:
             parameter = f'{key}="yes"'
             ansible_command.append("-e")
             ansible_command.append(parameter)

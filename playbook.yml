@@ -22,7 +22,6 @@
         - feh
         - fonts
         - languages
-        - mate-panel
         - modprobe
         - neovim
         - polybar
@@ -33,3 +32,4 @@
         - alsa
         - mariadb
         - gtk
+        - defaults
