@@ -9,3 +9,4 @@
           - fakeroot
           - unzip
           - nfs-utils
+          - ripgrep
