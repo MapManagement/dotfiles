@@ -16,4 +16,4 @@ vim.g.airline_theme="bubblegum"
 vim.g.OmniSharp_server_use_net6 = 1
 
 -- Catppuccin --
-vim.g.transparent_background = 1
+vim.g.transparent_background = 0

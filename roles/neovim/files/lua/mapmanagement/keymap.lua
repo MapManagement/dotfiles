@@ -1,7 +1,9 @@
 -- Import map() function from utils and set options
 local remap = require("mapmanagement.utils").map
-local options = { silent = true, noremap = true, expr = true, replace_keycodes = false }
+local options = { silent = true, noremap = true }
 
--- Map submit action of CoC to "ENTER" key
---remap("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], options)
+-- leader key
+vim.g.mapleader = " "
 
+-- Toogle file tree (nvim-tree)
+remap("n", "<leader>b", "<CMD>NvimTreeToggle<CR>", options)
