@@ -49,6 +49,12 @@ local function init()
 			},
 		}
 	}
+
+	-- ===== marksman configuration =====
+	require'lspconfig'.marksman.setup {
+		on_attach = on_attach,
+		capabilities = capabilities
+	}
 end
 
 return {
