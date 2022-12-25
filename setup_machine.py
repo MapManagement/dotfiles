@@ -22,6 +22,12 @@ def read_user_inputs():
 def convert_user_input(answer: str) -> bool:
     return answer == "y"
 
+def install_asible():
+    installation_command = ["python", "-m", "pip", "install", "ansible"]
+
+    subprocess.run(installation_command)
+    print("Installed ansible")
+
 def execute_ansible_playbook():
     ansible_command = ["ansible-playbook", "-K", "playbook.yml"]
 
@@ -34,5 +40,6 @@ def execute_ansible_playbook():
     subprocess.run(ansible_command)
 
 if __name__ == "__main__":
+    install_asible()
     read_user_inputs()
     execute_ansible_playbook()
