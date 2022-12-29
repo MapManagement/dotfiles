@@ -4,9 +4,6 @@ return require("packer").startup(function(use)
 
     use {
 		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require "mapmanagement.plugins.nvim-tree".init()
-		end,
         requires = { "nvim-tree/nvim-web-devicons" }
     }
 
@@ -26,9 +23,6 @@ return require("packer").startup(function(use)
 
 	use {
 		"hrsh7th/nvim-cmp",
-		config = function()
-			require "mapmanagement.plugins.nvim-cmp".init()
-		end
 	}
 
 	use {
@@ -36,9 +30,6 @@ return require("packer").startup(function(use)
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
 			ts_update()
-		end,
-		config = function()
-			require "mapmanagement.plugins.nvim-treesitter".init()
 		end
 	}
 
@@ -50,31 +41,28 @@ return require("packer").startup(function(use)
 
 	use {
 		"neovim/nvim-lspconfig",
-		config = function()
-			require "mapmanagement.plugins.lspconfig".init()
-		end
 	}
 
 	use { 
         "catppuccin/nvim",
         as = "catppuccin",
-        config = function()
-			require "mapmanagement.plugins.catppuccin".init()
+		config = function()
+			vim.cmd('colorscheme catppuccin')
 		end
 	}
 
-	use({
+	use {
 		"iamcco/markdown-preview.nvim",
 		run = function() vim.fn["mkdp#util#install"]() end,
-	})
+	}
 
-	use({
+	use {
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	})
+	}
 
 end)

@@ -1,9 +1,8 @@
--- Import map() function from utils and set options
-local remap = require("mapmanagement.utils").map
-local options = { silent = true, noremap = true }
-
 -- leader key
 vim.g.mapleader = " "
 
+-- netrw
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
 -- Toogle file tree (nvim-tree)
-remap("n", "<leader>b", "<CMD>NvimTreeToggle<CR>", options)
+vim.keymap.set("n", "<leader>b", "<CMD>NvimTreeToggle<CR>")

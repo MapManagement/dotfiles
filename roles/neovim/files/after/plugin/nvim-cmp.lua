@@ -1,8 +1,7 @@
-local function init()
-	local cmp = require 'cmp'
-	cmp.setup {
-		mapping = {
-    	['<Tab>'] = cmp.mapping.select_next_item(),
+local cmp = require 'cmp'
+cmp.setup {
+	mapping = {
+		['<Tab>'] = cmp.mapping.select_next_item(),
 		['<S-Tab>'] = cmp.mapping.select_prev_item(),
 		['<CR>'] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
@@ -17,13 +16,8 @@ local function init()
 		documentation = cmp.config.window.bordered(),
 	},
 	snippet = {
-            expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
-            end,
-        },
-}
-end
-
-return {
-	init = init
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
 }
