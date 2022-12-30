@@ -1,13 +1,13 @@
 return require("packer").startup(function(use)
 
-    use "wbthomason/packer.nvim"
+    use("wbthomason/packer.nvim")
 
     use {
 		"nvim-tree/nvim-tree.lua",
         requires = { "nvim-tree/nvim-web-devicons" }
     }
 
-    use "nvim-lua/plenary.nvim"
+    use("nvim-lua/plenary.nvim")
 
 	use {
 		"nvim-telescope/telescope.nvim",
@@ -15,15 +15,13 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" }
 	}
 
-    use "vim-airline/vim-airline"
-    use "vim-airline/vim-airline-themes"
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+	use("hrsh7th/cmp-nvim-lsp")
 
-    
-	use "hrsh7th/cmp-nvim-lsp"
-
-	use {
-		"hrsh7th/nvim-cmp",
-	}
+	use("hrsh7th/nvim-cmp")
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
@@ -33,15 +31,13 @@ return require("packer").startup(function(use)
 		end
 	}
 
-	use "hrsh7th/cmp-buffer"
-	use "hrsh7th/cmp-path"
-	use "hrsh7th/cmp-cmdline"
-	use "hrsh7th/cmp-vsnip"
-	use "hrsh7th/vim-vsnip"
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-cmdline")
+	use("hrsh7th/cmp-vsnip")
+	use("hrsh7th/vim-vsnip")
 
-	use {
-		"neovim/nvim-lspconfig",
-	}
+	use("neovim/nvim-lspconfig")
 
 	use { 
         "catppuccin/nvim",
@@ -56,13 +52,9 @@ return require("packer").startup(function(use)
 		run = function() vim.fn["mkdp#util#install"]() end,
 	}
 
-	use {
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
-		ft = { "markdown" },
-	}
+	use("lukas-reineke/indent-blankline.nvim")
+	use("mbbill/undotree")
+	use("tpope/vim-fugitive")
+		
 
 end)

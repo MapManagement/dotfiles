@@ -10,6 +10,7 @@ require("catppuccin").setup {
 		cmp = true,
 		treesitter = true,
 		telescope = true,
+		markdown = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
