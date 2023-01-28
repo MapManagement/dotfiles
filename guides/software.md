@@ -40,8 +40,7 @@
 - [Discord](https://discord.com/)
 - [Spotify](https://www.spotify.com)
 - [htop](https://github.com/htop-dev/htop)
-- [maim](https://github.com/naelstrof/maim)
-- [xclip](https://github.com/astrand/xclip)
+- [flameshot](https://github.com/flameshot-org/flameshot)
 
 ## Virtualization
 
