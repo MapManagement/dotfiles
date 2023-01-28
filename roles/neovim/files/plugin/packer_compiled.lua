@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/home/jan/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   catppuccin = {
     config = { "\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27colorscheme catppuccin\bcmd\bvim\0" },
     loaded = true,
@@ -105,6 +110,11 @@ _G.packer_plugins = {
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/jan/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -134,11 +144,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/jan/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,

@@ -2,11 +2,6 @@ return require("packer").startup(function(use)
 
     use("wbthomason/packer.nvim")
 
-    use {
-        "nvim-tree/nvim-tree.lua",
-        requires = { "nvim-tree/nvim-web-devicons" }
-    }
-
     use("nvim-lua/plenary.nvim")
 
     use {
@@ -17,7 +12,7 @@ return require("packer").startup(function(use)
 
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
     use("hrsh7th/cmp-nvim-lsp")
 
@@ -58,5 +53,14 @@ return require("packer").startup(function(use)
 
     use("williamboman/mason.nvim")
     use("Hoffs/omnisharp-extended-lsp.nvim")
+
+    -- manage buffers
+    use("nvim-tree/nvim-web-devicons")
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "v3.*",
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
+    use("ThePrimeagen/harpoon")
 
 end)
