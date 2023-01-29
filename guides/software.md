@@ -35,7 +35,6 @@
 - [LibreOffice](https://github.com/LibreOffice/core)
 - [Okular](https://github.com/KDE/okular)
 - [Thunar](https://github.com/xfce-mirror/thunar)
-- [GIMP](https://github.com/GNOME/gimp)
 - [KeePassXC](https://github.com/keepassxreboot/keepassxc)
 - [Discord](https://discord.com/)
 - [Spotify](https://www.spotify.com)
@@ -56,15 +55,6 @@
     - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
     - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
     - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
-- [vim-plug](https://github.com/junegunn/vim-plug)
-    - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-    - [nerdtree](https://github.com/preservim/nerdtree)
-    - [coc.nvim](https://github.com/neoclide/coc.nvim)
-    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-    - [vim-airline](https://github.com/vim-airline/vim-airline)
-    - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-    - [catpuccin](https://github.com/catppuccin/nvim)
-    - [omnisharp-vim](https://github.com/OmniSharp/omnisharp-vim)
 - [catppuccin-rofi](https://github.com/catppuccin/rofi/tree/main/deathemonic)
 
 ## System

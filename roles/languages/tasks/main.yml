@@ -9,6 +9,7 @@
           - rust
           - jdk-openjdk
           - nodejs
+          - npm
 
     - name: Install Python and correpsonding packages
       become: true
