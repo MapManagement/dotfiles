@@ -63,4 +63,6 @@ return require("packer").startup(function(use)
     }
     use("ThePrimeagen/harpoon")
 
+    use("mfussenegger/nvim-dap")
+
 end)

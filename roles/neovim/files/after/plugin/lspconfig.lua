@@ -98,7 +98,7 @@ require 'lspconfig'.marksman.setup {
 }
 
 -- ===== lua-language-server ====
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {
             runtime = {
