@@ -64,5 +64,9 @@ return require("packer").startup(function(use)
     use("ThePrimeagen/harpoon")
 
     use("mfussenegger/nvim-dap")
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap"}
+    }
 
 end)
