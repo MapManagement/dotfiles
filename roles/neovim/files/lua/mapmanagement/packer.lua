@@ -64,9 +64,12 @@ return require("packer").startup(function(use)
     use("ThePrimeagen/harpoon")
 
     use("mfussenegger/nvim-dap")
+    use("theHamsta/nvim-dap-virtual-text")
     use {
         "rcarriga/nvim-dap-ui",
         requires = {"mfussenegger/nvim-dap"}
     }
+
+    use("simrat39/rust-tools.nvim")
 
 end)

@@ -1,5 +1,7 @@
 local dap = require("dap")
 
+
+-- ===== C# / .NET =====
 dap.adapters.coreclr = {
     type = "executable",
     command = "/usr/local/bin/netcoredbg/netcoredbg",
@@ -17,6 +19,12 @@ dap.configurations.cs = {
     },
 }
 
+-- ===== Python =====
+-- in order to work, you need to install debugpy into a virtual environment
+-- pip install debugby
+
+-- ===== Rust =====
+
 
 vim.keymap.set('n', '<F5>', function() require'dap'.continue() end, {})
 vim.keymap.set('n', '<F10>', function() require'dap'.step_over() end, {})
@@ -27,7 +35,8 @@ vim.keymap.set(
     'n',
     '<Leader>B',
     function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
-    {})
+    {}
+)
 vim.keymap.set(
     'n',
     '<Leader>lp',
