@@ -90,3 +90,13 @@
 
 - toggle undotree = ``<leader\>u``
 
+#### DAP
+
+- start/continue debugging = ``<F5>``
+- step over = ``<F10>``
+- step into = ``<F11>``
+- step out = ``<F12>``
+- toggle breakpoint = ``<leader\>b``
+- open repl = ``<leader\>dr``
+- run last = ``<leader\>dl``
+
