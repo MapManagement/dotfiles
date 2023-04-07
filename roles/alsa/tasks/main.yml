@@ -5,7 +5,27 @@
       pacman:
         name:
           - alsa-utils
-          - pulseaudio
-          - pulseaudio-alsa
+          - pipewire-audio
+          - pipewire-pulse
+          - pipewire-alsa
           - qemu-audio-alsa
           - pavucontrol
+          - wireplumber
+
+    - name: Enable sockets PipeWire
+      become: true
+      systemd:
+        name: pipewire.sockets
+        enabled: yes
+
+    - name: Enable sockets for PipeWire-Pulse
+      become: true
+      systemd:
+        name: pipewire-pulse.socket
+        enabled: yes
+
+    - name: Enable Wireplumber
+      become: true
+      systemd:
+        name: wireplumber.service
+        enabled: yes
