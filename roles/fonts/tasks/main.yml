@@ -20,7 +20,7 @@
     - name: Download Meslo LGS Nerd Font
       get_url:
         url: "{{ item.url }}"
-        dest: "~/.local/share/fonts/ttf/MesloLGS\ NF/{{ item.name }}"
+        dest: "~/.local/share/fonts/ttf/MesloLGS NF/{{ item.name }}"
       with_items:
         - {
             url: https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf,
@@ -43,6 +43,12 @@
       become: true
       pacman:
         name: powerline-fonts
+
+    - name: Download Iosevka Nerd Font
+      unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip
+        dest: ~/.local/share/fonts/
+        remote_src: yes
 
     - name: Reload font cache
       shell: fc-cache
