@@ -14,9 +14,6 @@ return require("packer").startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
-    use("hrsh7th/cmp-nvim-lsp")
-
-    use("hrsh7th/nvim-cmp")
 
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -26,13 +23,22 @@ return require("packer").startup(function(use)
         end
     }
 
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-cmdline")
-    use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/vim-vsnip")
+    use {
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-vsnip",
+        "hrsh7th/vim-vsnip"
+    }
 
-    use("neovim/nvim-lspconfig")
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+        "Hoffs/omnisharp-extended-lsp.nvim"
+    }
 
     use {
         "catppuccin/nvim",
@@ -50,9 +56,6 @@ return require("packer").startup(function(use)
     use("lukas-reineke/indent-blankline.nvim")
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
-
-    use("williamboman/mason.nvim")
-    use("Hoffs/omnisharp-extended-lsp.nvim")
 
     -- manage buffers
     use("nvim-tree/nvim-web-devicons")

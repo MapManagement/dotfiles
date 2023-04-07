@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
-    -- ===== omnisharp specific keymaps =====
+    -- ===== Omnisharp specific keymaps =====
     vim.keymap.set('n', '<leader>nd', vim.lsp.buf.definition, bufopts)
 end
 
@@ -43,7 +43,7 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     }
 )
 
--- ===== omnisharp =====
+-- ===== C# /Omnisharp =====
 require 'lspconfig'.omnisharp.setup {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -61,13 +61,13 @@ require 'lspconfig'.omnisharp.setup {
         tostring(pid)
     }
 }
--- ===== pyright configuration =====
-require 'lspconfig'.pyright.setup {
+-- ===== Python / Jedi =====
+require 'lspconfig'.jedi_language_server.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
 
--- ===== rust-analyzer =====
+-- ===== Rust =====
 require 'lspconfig'.rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -91,13 +91,13 @@ require 'lspconfig'.rust_analyzer.setup {
     }
 }
 
--- ===== marksman =====
+-- ===== Markdown / Marksman =====
 require 'lspconfig'.marksman.setup {
     on_attach = on_attach,
     capabilities = capabilities
 }
 
--- ===== lua-language-server ====
+-- ===== Lua ====
 require 'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {
@@ -117,11 +117,15 @@ require 'lspconfig'.lua_ls.setup {
     },
 }
 
--- ===== dockerfile-language-server =====
+-- ===== Docker =====
 require 'lspconfig'.dockerls.setup {}
+require 'lspconfig'.docker_compose_language_service.setup {}
 
 -- ===== lemminx =====
 require 'lspconfig'.lemminx.setup {}
 
--- ===== sql-language-server =====
+-- ===== SQL =====
 require 'lspconfig'.sqlls.setup {}
+
+-- ===== Ansible =====
+require 'lspconfig'.ansiblels.setup {}

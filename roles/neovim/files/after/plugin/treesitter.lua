@@ -6,10 +6,13 @@ require('nvim-treesitter.configs').setup {
 		"c_sharp",
 		"dockerfile",
 		"latex",
-		"markdown",
+		"markdown_inline",
 		"python",
 		"sql",
-		"yaml"
+		"yaml",
+        "cpp",
+        "html",
+        "json"
 	},
   	auto_install = true,
   	highlight = {
