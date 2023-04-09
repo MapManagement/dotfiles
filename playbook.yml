@@ -6,6 +6,7 @@
     is_desktop: "no"
     external_drives: "no"
     multi_monitor: "no"
+    is_manjaro: "no"
   tasks:
     - ansible.builtin.include_role:
         name: "{{ item }}"
@@ -13,6 +14,7 @@
         - directories
         - standard
         - sddm
+        - xrandr
         - i3
         - git
         - picom

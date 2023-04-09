@@ -1,0 +1,14 @@
+---
+- block:
+    - name: Install ARandR
+      become: true
+      pacman:
+        name: arandr
+
+    - name: Copy monitor script
+      copy:
+        src: ../files/set_monitors.sh
+        dest: ~/.config/i3/set_monitors.sh
+        mode: +x
+      when: multi_monitor == "yes"
+
