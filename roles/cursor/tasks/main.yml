@@ -1,0 +1,12 @@
+---
+- block:
+    - name: Clone Catppuccin cursors
+      git:
+        repo: https://github.com/catppuccin/cursors
+        dest: /tmp
+
+    - name: Extract cursor theme
+      become: true
+      unarchive:
+        src: /tmp/cursors/Catppuccin-Macchiato-Dark-Cursors.zip
+        dest: /usr/share/icons/Catppuccin-Macchiato-Dark-Cursors
