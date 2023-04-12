@@ -1,0 +1,32 @@
+---
+- block:
+    - name: Clone i3lock-color
+      git:
+        src: https://github.com/Raymo111/i3lock-color
+        dest: /tmp
+
+    - name: Install i3lock-color dependency
+      script:
+        cmd: /tmp/i3lock-color/install-i3lock-color.sh
+
+    - name: Install ImageMagick dependency
+      become: true
+      pacman:
+        name: imagemagick
+
+    - name: Install Xorg dependencies
+      become: true
+      pacman:
+        name:
+          - xorg-xdpyinfo
+          - xorg-xrdb
+          - xorg-xset
+
+    - name: Download install script for betterlockscreen
+      get_url:
+        url: https://github.com/betterlockscreen/betterlockscreen/blob/main/install.sh
+        dest: /temp/betterlockscreen_install.sh
+
+    - name: Run install script for betterlockscreen
+      script:
+        cmd: /tmp/betterlockscreen_install.sh
