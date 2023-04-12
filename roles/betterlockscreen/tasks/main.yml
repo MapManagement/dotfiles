@@ -2,10 +2,11 @@
 - block:
     - name: Clone i3lock-color
       git:
-        src: https://github.com/Raymo111/i3lock-color
-        dest: /tmp
+        repo: https://github.com/Raymo111/i3lock-color
+        dest: /tmp/i3lock-color
 
     - name: Install i3lock-color dependency
+      become: true
       script:
         cmd: /tmp/i3lock-color/install-i3lock-color.sh
 
@@ -22,11 +23,26 @@
           - xorg-xrdb
           - xorg-xset
 
-    - name: Download install script for betterlockscreen
-      get_url:
-        url: https://github.com/betterlockscreen/betterlockscreen/blob/main/install.sh
-        dest: /temp/betterlockscreen_install.sh
+    - name: Extract betterlockscreen executable
+      unarchive:
+        src: https://github.com/betterlockscreen/betterlockscreen/archive/refs/heads/main.zip
+        dest: /tmp
+        remote_src: yes
 
-    - name: Run install script for betterlockscreen
-      script:
-        cmd: /tmp/betterlockscreen_install.sh
+    - name: Copy betterlockscreen executable to bin
+      become: true
+      copy:
+        src: /tmp/betterlockscreen-main
+        dest: /usr/local/bin
+        mode: "u+x"
+
+    - name: Copy betterlockscreen systemd service
+      become: true
+      copy:
+        src: /tmp/betterlockscreen-main/system/betterlockscreen@.service
+        dest: /usr/lib/systemd/system/betterlockscreen@.service
+
+    - name: Clean tmp directory
+      file:
+        state: absent
+        path: /tmp/betterlockscreen-main
