@@ -10,3 +10,8 @@
           - unzip
           - nfs-utils
           - ripgrep
+          - make
+          - automake
+          - autoconf
+          - pkgconf
+          - bc

@@ -32,8 +32,9 @@
     - name: Copy betterlockscreen executable to bin
       become: true
       copy:
-        src: /tmp/betterlockscreen-main
-        dest: /usr/local/bin
+        src: /tmp/betterlockscreen-main/betterlockscreen
+        dest: /usr/local/bin/betterlockscreen
+        owner: "{{ ansible_user_id }}"
         mode: "u+x"
 
     - name: Copy betterlockscreen systemd service
@@ -42,7 +43,13 @@
         src: /tmp/betterlockscreen-main/system/betterlockscreen@.service
         dest: /usr/lib/systemd/system/betterlockscreen@.service
 
-    - name: Clean tmp directory
+    - name: Remove betterlockscreen directory
       file:
         state: absent
         path: /tmp/betterlockscreen-main
+
+    - name: Remove zip file
+      file:
+        state: absent
+        path: /tmp/main.zip
+
