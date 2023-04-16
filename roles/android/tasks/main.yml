@@ -1,0 +1,6 @@
+---
+- block:
+    - name: Install android-tools
+      become: true
+      pacman:
+        name: android-tools

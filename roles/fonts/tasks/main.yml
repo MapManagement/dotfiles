@@ -44,6 +44,13 @@
       pacman:
         name: powerline-fonts
 
+    - name: Install noto-fonts
+      become: true
+      pacman:
+        name:
+          - noto-fonts
+          - noto-fonts-emoji
+
     - name: Download Iosevka Nerd Font
       unarchive:
         src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip

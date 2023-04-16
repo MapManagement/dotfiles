@@ -13,8 +13,8 @@
         - directories
         - standard
         - sddm
-        - xrandr
         - i3
+        - xrandr
         - git
         - picom
         - betterlockscreen
@@ -34,3 +34,6 @@
         - mariadb
         - gtk
         - defaults
+        - android
+        - cursor
+        - alsa

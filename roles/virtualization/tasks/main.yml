@@ -32,7 +32,7 @@
   - name: Add user to libvirt group
     become: true
     user:
-      name: "{{ user }}" 
+      name: "{{ ansible_user_id }}" 
       groups: libvirt
       append: yes
     when: is_desktop == "yes"

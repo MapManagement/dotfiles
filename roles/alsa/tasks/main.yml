@@ -13,19 +13,19 @@
           - wireplumber
 
     - name: Enable sockets PipeWire
-      become: true
       systemd:
-        name: pipewire.sockets
+        name: pipewire.socket
         enabled: yes
+        scope: user
 
     - name: Enable sockets for PipeWire-Pulse
-      become: true
       systemd:
         name: pipewire-pulse.socket
         enabled: yes
+        scope: user
 
     - name: Enable Wireplumber
-      become: true
       systemd:
         name: wireplumber.service
         enabled: yes
+        scope: user
