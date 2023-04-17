@@ -140,11 +140,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Install additional packages
 
-Set X11-Keymap:
-```sh
-localectl set-x11-keymap de
-```
-
 Install git, sudo and Alacritty:
 
 ```sh
@@ -170,8 +165,6 @@ passwd your_username
 Install yay (AUR package manager):
 
 ```sh
-mkdir /opt/yay
-cd /opt
 git clone https://aur.archlinux.org/yay.git
 cd /yay
 makepkg -si

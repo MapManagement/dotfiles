@@ -23,7 +23,7 @@ def convert_user_input(answer: str) -> bool:
     return answer == "y"
 
 def install_asible():
-    installation_command = ["python", "-m", "pip", "install", "ansible"]
+    installation_command = ["python", "-m", "pip", "install", "ansible", "ansible-core"]
 
     subprocess.run(installation_command)
     print("Installed ansible")

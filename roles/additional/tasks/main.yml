@@ -15,3 +15,5 @@
           - htop
           - flameshot
           - optipng
+          - openssh
+          - gvfs-smb

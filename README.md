@@ -11,7 +11,8 @@ of every package I need.
 
 1. Clone this repo onto your fresh installation of an Arch based distro. To avoid any problems, I
 recommend to do it on an empty home directory.
-2. Afterwards you need to adjust some files to your specific setup:
+2. Make sure that Python and pip is installed.
+3. Afterwards you need to adjust some files to your specific setup:
     - i3 monitor configuration (only for dual monitor setups)
         - edit ``dotfiles/roles/i3/files/multi_monitor_config`` and change the output devices
         ```
@@ -26,7 +27,7 @@ recommend to do it on an empty home directory.
         main = DP-1
         secon = HDMI-1
         ```
-3. Once you edited these files, you can start the installation process. Simply just run the
+4. Once you edited these files, you can start the installation process. Simply just run the
 ``setup_machine.py`` Python script. You'll have to answer some questions which control a few
 tasks of the playbook.
-4. If you didn't run into any errors, you should restart now. Enjoy your new machine :)
+5. If you didn't run into any errors, you should restart now. Enjoy your new machine :)
