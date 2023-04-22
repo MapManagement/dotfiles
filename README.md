@@ -31,3 +31,16 @@ recommend to do it on an empty home directory.
 ``setup_machine.py`` Python script. You'll have to answer some questions which control a few
 tasks of the playbook.
 5. If you didn't run into any errors, you should restart now. Enjoy your new machine :)
+
+## Testing
+
+All roles except ``virtualization`` can be tested using a Dockerfile. If the configuration fails,
+it will be logged to Docker''s internal logs. You can start a test container by building the image
+and creating a container out of it.
+
+```sh
+# inside the repository
+docker build . -t dotfiles
+docker run -d -t dotfiles
+docker logs <CONTAINER_ID>
+```

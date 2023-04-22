@@ -15,6 +15,7 @@
     - name: Set x11-keymap
       become: true
       shell: localectl set-x11-keymap de
+      ignore_errors: true
 
     - name: Copy multiple monitors i3 configuration file
       copy:
