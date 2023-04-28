@@ -55,7 +55,8 @@
     - name: Create directory for Iosevka Nerd Font
       file:
         path: ~/.local/share/fonts/ttf/Iosevka
-        state: recurse
+        state: directory
+        recurse: true
 
     - name: Download Iosevka Nerd Font
       get_url:

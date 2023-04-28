@@ -17,3 +17,4 @@
     - name: Regenerate initramfs
       become: true
       shell: mkinitcpio -P
+      when: mkinitcpio == "yes"

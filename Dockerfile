@@ -11,4 +11,4 @@ FROM base
 WORKDIR /home/tester
 USER tester
 COPY --chown=tester . .
-ENTRYPOINT ["ansible-playbook", "playbook.yml", "-e", "ansible_become_pass=tester"]
+ENTRYPOINT ["ansible-playbook", "playbook.yml", "-e", "ansible_become_pass=tester", "-e", "mkinitcpio=no"]

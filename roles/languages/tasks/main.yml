@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: Install languages and framework
+    - name: Install languages and frameworks
       become: true
       pacman:
         name:
