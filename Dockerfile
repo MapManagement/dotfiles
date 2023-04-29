@@ -1,6 +1,6 @@
 FROM archlinux:latest as base
 WORKDIR /base
-RUN pacman -Syu --noconfirm && \
+RUN pacman -Sy --noconfirm && \
     pacman -S git sudo alacritty --noconfirm && \
     pacman -S ansible-core ansible --noconfirm && \
     echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers && \

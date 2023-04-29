@@ -1,12 +1,14 @@
 ---
 - block:
-    - name: Clone Catppuccin cursors
-      git:
-        repo: https://github.com/catppuccin/cursors
-        dest: /tmp
-
+    - name: Create cursor directory
+      become: true
+      file:
+        path: /usr/share/icons/Catppuccin-Macchiato-Dark-Cursors 
+        state: directory
+    
     - name: Extract cursor theme
       become: true
       unarchive:
-        src: /tmp/cursors/Catppuccin-Macchiato-Dark-Cursors.zip
+        src: https://github.com/catppuccin/cursors/releases/latest/download/Catppuccin-Macchiato-Dark-Cursors.zip
         dest: /usr/share/icons/Catppuccin-Macchiato-Dark-Cursors
+        remote_src: yes
