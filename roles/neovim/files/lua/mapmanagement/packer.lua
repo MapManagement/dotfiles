@@ -1,5 +1,4 @@
 return require("packer").startup(function(use)
-
     use("wbthomason/packer.nvim")
 
     use("nvim-lua/plenary.nvim")
@@ -70,9 +69,10 @@ return require("packer").startup(function(use)
     use("theHamsta/nvim-dap-virtual-text")
     use {
         "rcarriga/nvim-dap-ui",
-        requires = {"mfussenegger/nvim-dap"}
+        requires = { "mfussenegger/nvim-dap" }
     }
 
     use("simrat39/rust-tools.nvim")
 
+    use('rmagatti/auto-session')
 end)
