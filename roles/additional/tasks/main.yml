@@ -17,3 +17,5 @@
           - optipng
           - openssh
           - gvfs-smb
+          - borg
+          - python-llfuse
