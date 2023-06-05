@@ -26,6 +26,8 @@
 [omnisharp-extended-lsp.nvim](https://github.com/Hoffs/omnisharp-extended-lsp.nvim)
 - buffers in tabs: [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - move between files fast: [harpoon](https://github.com/ThePrimeagen/harpoon)
+- LaTex editing: [VimTeX](https://github.com/lervag/vimtex)
+- save your sessions automatically: [auto-session](https://github.com/rmagatti/auto-session)
 
 ## Keymaps
 
@@ -100,3 +102,6 @@
 - open repl = ``<leader\>dr``
 - run last = ``<leader\>dl``
 
+#### VimTex
+
+- localleader key = ``<space>``
