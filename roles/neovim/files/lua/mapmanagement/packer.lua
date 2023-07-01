@@ -77,4 +77,6 @@ return require("packer").startup(function(use)
     use("rmagatti/auto-session")
 
     use("lervag/vimtex")
+
+    use ("christoomey/vim-tmux-navigator")
 end)
