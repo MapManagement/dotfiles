@@ -115,6 +115,15 @@ _G.packer_plugins = {
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["crates.nvim"] = {
+    after_files = { "/home/jan/.local/share/nvim/site/pack/packer/opt/crates.nvim/after/plugin/cmp_crates.lua" },
+    config = { "\27LJ\2\nE\0\2\6\0\4\0\t6\2\0\0'\4\1\0B\2\2\0029\3\2\2\18\5\1\0B\3\2\0019\3\3\2B\3\1\1K\0\1\0\tshow\nsetup\vcrates\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/jan/.local/share/nvim/site/pack/packer/opt/crates.nvim",
+    url = "https://github.com/saecki/crates.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -124,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/home/jan/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -200,6 +214,13 @@ _G.packer_plugins = {
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["rust.vim"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/jan/.local/share/nvim/site/pack/packer/opt/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/jan/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -237,6 +258,19 @@ time([[Defining packer_plugins]], false)
 time([[Config for catppuccin]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\27colorscheme catppuccin\bcmd\bvim\0", "config", "catppuccin")
 time([[Config for catppuccin]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim', 'crates.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType toml ++once lua require("packer.load")({'crates.nvim'}, { ft = "toml" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/jan/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
+vim.cmd [[source /home/jan/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]]
+time([[Sourcing ftdetect script at: /home/jan/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

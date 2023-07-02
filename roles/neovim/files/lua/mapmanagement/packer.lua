@@ -29,7 +29,8 @@ return require("packer").startup(function(use)
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-vsnip",
-        "hrsh7th/vim-vsnip"
+        "hrsh7th/vim-vsnip",
+        "onsails/lspkind.nvim"
     }
 
     use {
@@ -73,10 +74,26 @@ return require("packer").startup(function(use)
     }
 
     use("simrat39/rust-tools.nvim")
+    use {
+        "rust-lang/rust.vim",
+        ft = "rust",
+        init = function()
+            vim.g.rustfmt_autosave = 1
+        end
+    }
+    use {
+        "saecki/crates.nvim",
+        ft = { "rust", "toml" },
+        config = function(_, opts)
+            local crates = require("crates")
+            crates.setup(opts)
+            crates.show()
+        end
+    }
 
     use("rmagatti/auto-session")
 
     use("lervag/vimtex")
 
-    use ("christoomey/vim-tmux-navigator")
+    use("christoomey/vim-tmux-navigator")
 end)

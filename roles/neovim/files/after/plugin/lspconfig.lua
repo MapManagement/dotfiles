@@ -3,6 +3,7 @@ local pid           = vim.fn.getpid()
 local omnisharp_bin = "/home/jan/.local/bin/omnisharp/OmniSharp"
 local capabilities  = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local opts          = { noremap = true, silent = true }
+local util = require "lspconfig.util"
 
 -- ===== LSP keymaps =====
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -66,30 +67,6 @@ require 'lspconfig'.omnisharp.setup {
 require 'lspconfig'.jedi_language_server.setup {
     capabilities = capabilities,
     on_attach = on_attach
-}
-
--- ===== Rust =====
-require 'lspconfig'.rust_analyzer.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-        ["rust-analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        },
-    }
 }
 
 -- ===== Markdown / Marksman =====
