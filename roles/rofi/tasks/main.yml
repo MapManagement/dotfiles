@@ -12,7 +12,7 @@
 
     - name: Clone Catpuccin theme from GitHub
       git:
-        repo: https://github.com/catppuccin/rofi
+        repo: https://github.com/MapManagement/rofi-theme
         dest: ~/Downloads
 
     - name: Copy theme to configuration directory
