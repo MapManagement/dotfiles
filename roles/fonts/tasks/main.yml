@@ -52,5 +52,16 @@
           - noto-fonts-emoji
           - ttf-nerd-fonts-symbols-common
 
+    - name: Create directory for Iosevka Nerd Font
+      file:
+        path: ~/.local/share/fonts/ttf/Iosevka
+        state: directory
+        recurse: true
+
+    - name: Download Iosevka Nerd Font
+      get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Iosevka/Regular/complete/Iosevka%20Nerd%20Font%20Complete.ttf
+        dest: ~/.local/share/fonts/ttf/Iosevka/Iosveka Nerd Font Complete.ttf
+
     - name: Reload font cache
       shell: fc-cache
