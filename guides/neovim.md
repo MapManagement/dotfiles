@@ -33,64 +33,64 @@
 
 ### Default
 
-- leader = ``<space\>``
-- netrw = ``<leader\>pv``
-- next buffer = ``<C-n\>``
-- previous buffer = ``<C-p\>``
-- close buffer = ``<leader\>c``
+- leader = ``<space>``
+- netrw = ``<leader> p v``
+- next buffer = ``<ctrl> n``
+- previous buffer = ``<ctrl> p``
+- close buffer = ``<leader> c``
 
 ### Plugins
 
 #### LSP
 
-- open diagonstics = ``<space\>e``
-- previous diagnostics = ``[d``
-- next diagnostics = ``]d``
-- set local diagnostics = ``<space\>q``
+- open diagonstics = ``<space> e``
+- previous diagnostics = ``[ d``
+- next diagnostics = ``] d``
+- set local diagnostics = ``<space> q``
 
-- format code = ``<leader>f``
-- jump to declaration = ``gD``
-- jump to definition = ``gd`` / ``nd``
+- format code = ``<leader> f``
+- jump to declaration = ``g D``
+- jump to definition = ``g d`` / ``n d``
 - show definition = ``K``
-- shows all implementations = ``gi``
-- show signature information = ``<C-k\>``
-- add folder to workspace = ``<space\>wa``
-- remove folder from workspace = ``<space\>wr``
-- list workspace folders = ``<space\>wl``
-- jump to definition of type = ``<space\>D``
-- rename = ``<space>rn``
-- shows all references = ``gr``
-- format code = ``<space\>f``
+- shows all implementations = ``g i``
+- show signature information = ``<ctrl> k``
+- add folder to workspace = ``<space> w a``
+- remove folder from workspace = ``<space> w r``
+- list workspace folders = ``<space> w l``
+- jump to definition of type = ``<space> D``
+- rename = ``<space> r n``
+- shows all references = ``g r``
+- format code = ``<space> f``
 
 #### Fugitive
 
-- show git = ``<leader\>g``
+- show git = ``<leader> g``
 
 #### Harpoon
 
-- add file = ``<leader\>a``
-- toggle menu = ``<C-e\>``
-- first file = ``<leader\>1``
-- second file = ``<leader\>2``
-- third file = ``<leader\>3``
-- fourht file = ``<leader\>4``
+- add file = ``<leader> a``
+- toggle menu = ``<ctrl> e``
+- first file = ``<leader> 1``
+- second file = ``<leader> 2``
+- third file = ``<leader> 3``
+- fourht file = ``<leader> 4``
 
 #### CMP
 
-- next item = ``<Tab\>``
-- previous item = ``<Tab\>``
-- confirm item = ``<CR\>``
+- next item = ``<tab>``
+- previous item = ``<tab>``
+- confirm item = ``<return>``
 
 #### Telescope
 
-- find files = ``<leader\>ff``
-- find only Git files = ``<C-p\>``
-- grep string in file = ``<leader\>ps``
-- live grep = ``<leader\>fg``
+- find files = ``<leader> f f``
+- find only Git files = ``<ctrl> p``
+- grep string in file = ``<leader> p s``
+- live grep = ``<leader> f g``
 
 #### Undotree
 
-- toggle undotree = ``<leader\>u``
+- toggle undotree = ``<leader> u``
 
 #### DAP
 
@@ -98,9 +98,9 @@
 - step over = ``<F10>``
 - step into = ``<F11>``
 - step out = ``<F12>``
-- toggle breakpoint = ``<leader\>b``
-- open repl = ``<leader\>dr``
-- run last = ``<leader\>dl``
+- toggle breakpoint = ``<leader> b``
+- open repl = ``<leader> d r``
+- run last = ``<leader> d l``
 
 #### VimTex
 
