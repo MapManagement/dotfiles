@@ -4,9 +4,6 @@
       become: true
       pacman:
         name:
-          - dotnet-sdk
-          - mono-msbuild
-          - rust
           - jdk-openjdk
           - nodejs
           - npm
@@ -39,4 +36,32 @@
     - name: Install Rust
       when: cargo_is_installed is failed
       shell: /tmp/sh.rustup.rs -y
+
+    # === .NET isntallation === #
+    - name: Install base .NET packages
+      become: true
+      pacman:
+        name:
+          - dotnet-sdk
+          - mono-msbuild
+
+    - name: Create netcoredbg directory
+      become: true
+      file:
+        path: /usr/local/bin/netcoredbg
+        state: directory
+
+    - name: Extract netcoredbg
+      become: true
+      unarchive:
+        src: https://github.com/Samsung/netcoredbg/releases/latest/download/netcoredbg-linux-amd64.tar.gz
+        dest: /usr/local/bin/netcoredbg
+        remote_src: yes
+
+    - name: Set permission for netcoredbg
+      become: true
+      shell: chmod 744 /usr/local/bin/netcoredbg/*
+        
+
+
 
