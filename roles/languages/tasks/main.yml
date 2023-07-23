@@ -61,6 +61,12 @@
     - name: Set permission for netcoredbg
       become: true
       shell: chmod 744 /usr/local/bin/netcoredbg/*
+
+    # === C++ installation === #
+    - name: Install base C++ packages
+      become: true
+      pacman:
+        - clang
         
 
 
