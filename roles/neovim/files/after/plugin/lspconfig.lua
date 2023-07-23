@@ -1,9 +1,8 @@
 -- ===== local variables =====
 local pid           = vim.fn.getpid()
 local omnisharp_bin = "/home/jan/.local/bin/omnisharp/OmniSharp"
-local capabilities  = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities  = vim.lsp.protocol.make_client_capabilities()
 local opts          = { noremap = true, silent = true }
-local util = require "lspconfig.util"
 
 -- ===== LSP keymaps =====
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -107,3 +106,9 @@ require 'lspconfig'.sqlls.setup {}
 
 -- ===== Ansible =====
 require 'lspconfig'.ansiblels.setup {}
+
+-- ===== C++ =====
+require 'lspconfig'.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}

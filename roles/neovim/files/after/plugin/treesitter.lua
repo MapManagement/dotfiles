@@ -16,7 +16,8 @@ require('nvim-treesitter.configs').setup {
 	},
   	auto_install = true,
   	highlight = {
-    	enable = true
+    	enable = true,
+        use_languagetree = true
   	},
 	indent = {
 		enable = true

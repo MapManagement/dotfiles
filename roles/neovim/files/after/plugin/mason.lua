@@ -1,4 +1,5 @@
 require("mason").setup()
+
 require("mason-lspconfig").setup {
     automatic_installation = true,
     ensure_installed = {
@@ -11,6 +12,15 @@ require("mason-lspconfig").setup {
         "docker_compose_language_service",
         "lemminx",
         "sqlls",
-        "ansiblels"
+        "ansiblels",
+        "clangd",
     }
+}
+
+require("mason-tool-installer").setup {
+    ensure_installed = {
+        "clang-format"
+    },
+    run_on_start = true,
+    auto_update = true
 }
