@@ -29,9 +29,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-
-    -- ===== Omnisharp specific keymaps =====
-    vim.keymap.set('n', '<leader>nd', vim.lsp.buf.definition, bufopts)
 end
 
 -- ===== hover window configuration =====
@@ -43,6 +40,29 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         -- width = 100,
     }
 )
+
+-- ===== diagnostic options =====
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = false,
+})
+
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- ===== Rust / rust-tools =====
+require("rust-tools").setup {
+    server = {
+        on_attach = on_attach,
+        capabilities = capabilities
+    },
+}
 
 -- ===== C# /Omnisharp =====
 require 'lspconfig'.omnisharp.setup {

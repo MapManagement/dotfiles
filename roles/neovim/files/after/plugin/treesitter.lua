@@ -15,11 +15,12 @@ require('nvim-treesitter.configs').setup {
         "json"
 	},
   	auto_install = true,
-  	highlight = {
-    	enable = true,
-        use_languagetree = true
-  	},
 	indent = {
 		enable = true
-	}
+	},
+    highlight = {
+        enable = true,
+        use_languagetree = true,
+        additional_vim_regex_highlighting = false
+    },
 }

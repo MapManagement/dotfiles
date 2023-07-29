@@ -22,6 +22,7 @@ return require("packer").startup(function(use)
         end
     }
 
+    -- ==== autocompletion ==== --
     use {
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
@@ -33,6 +34,7 @@ return require("packer").startup(function(use)
         "onsails/lspkind.nvim"
     }
 
+    -- ==== mason and LSP ==== --
     use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -56,7 +58,10 @@ return require("packer").startup(function(use)
 
     use("lukas-reineke/indent-blankline.nvim")
     use("mbbill/undotree")
+
+    -- ==== git ==== --
     use("tpope/vim-fugitive")
+    use("lewis6991/gitsigns.nvim")
 
     -- manage buffers
     use("nvim-tree/nvim-web-devicons")
@@ -67,6 +72,7 @@ return require("packer").startup(function(use)
     }
     use("ThePrimeagen/harpoon")
 
+    -- ==== debugging ==== --
     use("mfussenegger/nvim-dap")
     use("theHamsta/nvim-dap-virtual-text")
     use {
@@ -74,7 +80,8 @@ return require("packer").startup(function(use)
         requires = { "mfussenegger/nvim-dap" }
     }
 
-    use("simrat39/rust-tools.nvim")
+    -- ==== rust ==== --
+    use ("simrat39/rust-tools.nvim")
     use {
         "rust-lang/rust.vim",
         ft = "rust",
