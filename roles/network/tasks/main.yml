@@ -1,0 +1,14 @@
+---
+- block:
+    - name: Install network packages
+      become: true
+      pacman:
+        name:
+          - net-tools
+          - firewalld
+
+    - name: Enable firewalld in systemd
+      become: true
+      systemd:
+        name: firewalld
+        enabled: yes
