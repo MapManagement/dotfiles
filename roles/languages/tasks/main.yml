@@ -66,8 +66,5 @@
     - name: Install base C++ packages
       become: true
       pacman:
-        - clang
-        
-
-
-
+        name:
+           - clang

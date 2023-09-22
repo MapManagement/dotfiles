@@ -16,3 +16,4 @@
           - pkgconf
           - bc
           - base-devel
+          - glibc

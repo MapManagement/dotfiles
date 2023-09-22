@@ -1,6 +1,6 @@
 FROM archlinux:latest as base
 WORKDIR /base
-RUN pacman -Sy --noconfirm && \
+RUN pacman -Syu --noconfirm && \
     pacman -S git sudo alacritty --noconfirm && \
     pacman -S ansible-core ansible --noconfirm && \
     pacman -Sy archlinux-keyring --noconfirm && \
