@@ -45,7 +45,7 @@ bindsym $mod+0 exec --no-startup-id "sh ~/.config/rofi/bin/powermenu"
 bindsym $mod+Shift+s exec --no-startup-id "flameshot gui"
 
 # lock screen
-bindsym $mod+l exec --no-startup-id "betterlockscren -l --off 180"
+bindsym $mod+l exec --no-startup-id "betterlockscreen -l --off 180"
 
 # focus_follows_mouse no
 

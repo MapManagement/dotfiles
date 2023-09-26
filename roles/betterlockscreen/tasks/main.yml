@@ -43,6 +43,13 @@
         src: /tmp/betterlockscreen-main/system/betterlockscreen@.service
         dest: /usr/lib/systemd/system/betterlockscreen@.service
 
+    - name: Enable betterlockscreen service
+      systemd:
+        name: betterlockscreen
+        enable: true
+        state: started
+        scope: user
+
     - name: Remove betterlockscreen directory
       file:
         state: absent

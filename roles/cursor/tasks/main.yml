@@ -10,5 +10,25 @@
       become: true
       unarchive:
         src: https://github.com/catppuccin/cursors/releases/latest/download/Catppuccin-Macchiato-Dark-Cursors.zip
-        dest: /usr/share/icons/Catppuccin-Macchiato-Dark-Cursors
+        dest: /usr/share/icons
         remote_src: yes
+
+    - name: Create icons directory
+      file:
+        path: ~/.icons/default
+        state: directory
+        recurse: yes
+
+    - name: Copy configuration file
+      copy:
+        src: ../files/index.theme
+        dest: ~/.icons/default/index.theme
+
+    - name: Change owner of cursor directory
+      become: true
+      file:
+        path: /usr/share/icons/Catppuccin-Macchiato-Dark-Cursors
+        state: directory
+        recurse: yes
+        owner: "{{ ansible_effective_user_id }}"
+        group: "{{ ansible_effective_group_id }}"
