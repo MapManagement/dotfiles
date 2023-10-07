@@ -37,6 +37,9 @@
       when: cargo_is_installed is failed
       shell: /tmp/sh.rustup.rs -y
 
+    - name: Install rust-analyzer component
+      shell: rustup component add rust-analyzer 
+
     # === .NET isntallation === #
     - name: Install base .NET packages
       become: true
