@@ -20,3 +20,4 @@
           - borg
           - python-llfuse
           - texlive-core
+          - nextcloud-client
