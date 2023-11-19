@@ -14,7 +14,6 @@ cmp.setup {
         { name = "luasnip" },
         { name = "nvim_lua" },
         { name = "path" },
-        { name = "cmdline" },
         { name = "vsnip" },
     },
     window = {
