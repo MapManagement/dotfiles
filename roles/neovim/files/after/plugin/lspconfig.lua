@@ -1,8 +1,7 @@
 -- ===== local variables =====
-local pid           = vim.fn.getpid()
-local omnisharp_bin = "/home/jan/.local/bin/omnisharp/OmniSharp"
-local capabilities  = vim.lsp.protocol.make_client_capabilities()
-local opts          = { noremap = true, silent = true }
+local pid          = vim.fn.getpid()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local opts         = { noremap = true, silent = true }
 
 -- ===== LSP keymaps =====
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -76,7 +75,7 @@ require 'lspconfig'.omnisharp.setup {
         ["textDocument/definition"] = require('omnisharp_extended').handler
     },
     cmd = {
-        omnisharp_bin,
+        "omnisharp",
         "--languageserver",
         "--hostPID",
         tostring(pid)
