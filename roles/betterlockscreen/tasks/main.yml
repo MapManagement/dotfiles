@@ -44,11 +44,8 @@
         dest: /usr/lib/systemd/system/betterlockscreen@.service
 
     - name: Enable betterlockscreen service
-      systemd:
-        name: betterlockscreen
-        enable: true
-        state: started
-        scope: user
+      become: true
+      command: systemctl enable betterlockscreen@{{ ansible_user_id }}
 
     - name: Remove betterlockscreen directory
       file:
