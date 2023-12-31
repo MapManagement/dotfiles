@@ -2,13 +2,13 @@
 - block:
     - name: Download Catppuccin theme
       get_url:
-        url: https://github.com/catppuccin/gtk/releases/download/v-0.2.7/Catppuccin-Macchiato.zip
+        url: https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Macchiato-Standard-Sapphire-Dark.zip
         dest: ~/Downloads/Catppuccin-Macchiato.zip
 
     - name: Create theme directory
       become: true
       file:
-        path: /usr/share/themes/Catppuccin-Macchiato
+        path: /usr/share/themes/Catppuccin-Macchiato-Standard-Sapphire-Dark
         state: directory
         recurse: true
 
@@ -16,7 +16,7 @@
       become: true
       unarchive:
         src: ~/Downloads/Catppuccin-Macchiato.zip
-        dest: /usr/share/themes/Catppuccin-Macchiato
+        dest: /usr/share/themes/Catppuccin-Macchiato-Standard-Sapphire-Dark
 
     - name: Create GTK-3.0 directory
       file:
