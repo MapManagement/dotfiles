@@ -21,3 +21,5 @@
           - python-llfuse
           - texlive-core
           - nextcloud-client
+          - libsecret
+          - gnome-keyring
