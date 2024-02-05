@@ -4,7 +4,6 @@
   connection: local
   vars:
     is_desktop: "no"
-    external_drives: "no"
     multi_monitor: "no"
     mkinitcpio: "yes"
   tasks:

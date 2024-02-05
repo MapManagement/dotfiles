@@ -20,21 +20,14 @@
         path: ~/Pictures/Wallpapers
         state: directory
         recurse: true
+      
+    - name: Create Cloudy directory
+      file:
+        path: ~/Cloudy
+        state: directory
 
     - name: Create vms directory
       become: true
       file:
         path: /vms
         state: directory
-
-    - name: Create external directories
-      file:
-        path: "{{ item }}"
-        state: directory
-        recurse: true
-        with_items:
-          - ~/External/Home
-          - ~/External/Pub
-          - ~/External/Cloud
-      when: external_drives == "yes"
-
