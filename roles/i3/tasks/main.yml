@@ -21,10 +21,10 @@
       copy:
         src: ../files/multi_monitor_config
         dest: ~/.config/i3/config
-      when: multi_monitor == "yes"
+      when: multi_monitor
 
     - name: Copy default i3 configuration file
       copy:
         src: ../files/config
         dest: ~/.config/i3/config
-      when: multi_monitor != "yes"
+      when: not multi_monitor

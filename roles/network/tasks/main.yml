@@ -6,6 +6,7 @@
         name:
           - net-tools
           - firewalld
+          - wireguard-tools
 
     - name: Enable firewalld in systemd
       become: true

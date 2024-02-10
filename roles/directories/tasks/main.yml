@@ -26,15 +26,3 @@
       file:
         path: /vms
         state: directory
-
-    - name: Create external directories
-      file:
-        path: "{{ item }}"
-        state: directory
-        recurse: true
-        with_items:
-          - ~/External/Home
-          - ~/External/Pub
-          - ~/External/Cloud
-      when: external_drives == "yes"
-

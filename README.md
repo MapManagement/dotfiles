@@ -29,6 +29,19 @@ and wait until the script has finished its work.
     - ``~/.config/polybar/start_polybar.sh``
     - ``~/.config/polybar/config.ini``
 
+## After Installation
+
+Especially plugins and themes of some tools like Neovim and TPM are installed by running builtin
+commands. All tools that are affected are listed below:
+
+### Neovim
+
+Run ``PackerSync`` within Neovim.
+
+### TPM (tmux)
+
+Run ``prefix + I``.
+
 ## Testing
 
 All roles except ``virtualization`` can be tested using a Dockerfile. If the configuration fails,

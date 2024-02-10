@@ -18,3 +18,5 @@
           - bc
           - base-devel
           - glibc
+          - usbutils
+          - xorg-xev
