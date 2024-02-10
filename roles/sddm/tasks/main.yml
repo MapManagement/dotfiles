@@ -1,12 +1,40 @@
 ---
 - block:
-    - name: Install SDDM
+    - name: Install SDDM and theme dependencies
       become: true
       pacman:
-        name: sddm
+        name:
+          - sddm
+          - qt5-graphicaleffects
+          - qt5-svg
+          - qt5-quickcontrols2
+
+    - name: Clone catppuccin sddm themes
+      git:
+        repo: https://github.com/catppuccin/sddm
+        dest: /tmp/sddm-theme
+
+    - name: Copy Macchiato theme
+      become: true
+      copy:
+        src: /tmp/sddm-theme/src/catppuccin-macchiato
+        dest: /usr/share/sddm/themes/catppuccin-macchiato
+        owner: root
+        group: root
+
+    - name: Copy sddm configuration file
+      become: true
+      copy:
+        src: ../files/sddm.conf
+        dest: /etc/sddm.conf
 
     - name: Enable SDDM in systemd
       become: true
       systemd:
         name: sddm
         enabled: yes
+
+    - name: Remove cloned theme repo
+      file:
+        path: /tmp/sddm-theme
+        state: absent
