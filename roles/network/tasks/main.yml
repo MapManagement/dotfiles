@@ -7,6 +7,7 @@
           - net-tools
           - firewalld
           - wireguard-tools
+          - openresolv
 
     - name: Enable firewalld in systemd
       become: true
