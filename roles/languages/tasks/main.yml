@@ -71,3 +71,8 @@
       pacman:
         name:
            - clang
+
+    - name: Copy clang-format file onto machine
+      copy:
+        src: ../files/clang-format
+        dest: ~/.clang-format
