@@ -28,7 +28,7 @@ def execute_ansible_playbook():
 
     for key in ansible_parameters.keys():
         if ansible_parameters[key]:
-            parameter = f'{key}="yes"'
+            parameter = f'{key}=true'
             ansible_command.append("-e")
             ansible_command.append(parameter)
 

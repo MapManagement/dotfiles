@@ -3,11 +3,12 @@
   hosts: localhost
   connection: local
   vars:
-    is_desktop: "no"
-    multi_monitor: "no"
-    mkinitcpio: "yes"
+    is_laptop: false
+    multi_monitor: false
+    mkinitcpio: true
   tasks:
-    - ansible.builtin.include_role:
+    - name: Default roles
+      ansible.builtin.include_role:
         name: "{{ item }}"
       loop:
         - directories
@@ -30,10 +31,26 @@
         - polybar
         - rofi
         - tmux
-        - virtualization
         - alsa
         - mariadb
         - gtk
         - android
         - cursor
         - alsa
+
+    - name: Desktop only roles
+      ansible.builtin.include_role:
+        name: "{{ item }}"
+      loop:
+        - virtualization
+      when: not is_laptop
+
+    - name: Laptop only roles
+      ansible.builtin.include_role:
+        name: "{{ item }}"
+      loop:
+        - power_management
+        - fingerprint
+        - screen
+        - bluetooth
+      when: is_laptop

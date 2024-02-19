@@ -24,3 +24,5 @@
           - zoxide
           - fzf
           - xclip
+          - libsecret
+          - gnome-keyring

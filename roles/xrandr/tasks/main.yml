@@ -10,5 +10,5 @@
         src: ../files/set_monitors.sh
         dest: ~/.config/i3/set_monitors.sh
         mode: +x
-      when: multi_monitor == "yes"
+      when: multi_monitor
 

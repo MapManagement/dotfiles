@@ -15,23 +15,23 @@
         src: ../files/start_polybar.sh
         dest: ~/.config/polybar/start_polybar.sh
         mode: +x
-      when: multi_monitor == "no"
+      when: not multi_monitor
 
     - name: Copy start script for two monitors
       copy:
         src: ../files/start_polybar_multi_monitor.sh
         dest: ~/.config/polybar/start_polybar.sh
         mode: +x
-      when: multi_monitor == "yes"
+      when: multi_monitor
 
     - name: Copy configuration file for single monitor
       copy:
         src: ../files/config.ini
         dest: ~/.config/polybar/config.ini
-      when: multi_monitor == "no"
+      when: not multi_monitor
 
     - name: Copy configuration file for two monitors
       copy:
         src: ../files/config_multi_monitor.ini
         dest: ~/.config/polybar/config.ini
-      when: multi_monitor == "yes"
+      when: multi_monitor
