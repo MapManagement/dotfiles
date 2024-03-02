@@ -10,6 +10,11 @@
       pacman:
         name: polybar
 
+    - name: Copy color file
+      copy:
+        src: ../files/colors.ini
+        dest: ~/.config/polybar/colors.ini
+
     - name: Copy start script for single monitor
       copy:
         src: ../files/start_polybar.sh
