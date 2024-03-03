@@ -40,7 +40,7 @@
     - name: Install rust-analyzer component
       shell: rustup component add rust-analyzer 
 
-    # === .NET isntallation === #
+    # === .NET installation === #
     - name: Install base .NET packages
       become: true
       pacman:
@@ -71,6 +71,7 @@
       pacman:
         name:
            - clang
+           - cmake
 
     - name: Copy clang-format file onto machine
       copy:

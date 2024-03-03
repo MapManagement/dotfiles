@@ -1,9 +1,11 @@
 ---
 - block:
-    - name: Install Neovim package
+    - name: Install Neovim packages
       become: true
       pacman:
-        name: neovim
+        name:
+          - neovim
+          - gdb
 
     - name: Create Neovim directory
       file:
