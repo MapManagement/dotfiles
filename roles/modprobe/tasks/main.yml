@@ -5,14 +5,12 @@
       copy:
         src: ../files/hid_apple.conf
         dest: /etc/modprobe.d/hid_apple.conf
-      when: is_desktop == "yes"
 
     - name: Load keyboard module
       become: true
       modprobe:
         name: hid_apple
         state: present
-      when: is_desktop == "yes"
 
     - name: Regenerate initramfs
       become: true
