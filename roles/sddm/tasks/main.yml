@@ -9,18 +9,19 @@
           - qt5-svg
           - qt5-quickcontrols2
 
-    - name: Clone catppuccin sddm themes
-      git:
-        repo: https://github.com/catppuccin/sddm
-        dest: /tmp/sddm-theme
-
-    - name: Copy Macchiato theme
+    - name: Create theme directory
       become: true
-      copy:
-        src: /tmp/sddm-theme/src/catppuccin-macchiato
+      file:
+        path: /usr/share/sddm/themes/catppuccin-macchiato
+        state: directory
+        recurse: true
+
+    - name: Download and extract Catppuccin theme
+      become: true
+      unarchive:
+        src: https://github.com/catppuccin/sddm/releases/latest/download/catppuccin-macchiato.zip
         dest: /usr/share/sddm/themes/catppuccin-macchiato
-        owner: root
-        group: root
+        remote_src: yes
 
     - name: Copy sddm configuration file
       become: true
