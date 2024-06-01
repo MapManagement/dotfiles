@@ -41,11 +41,20 @@
       shell: rustup component add rust-analyzer 
 
     # === .NET installation === #
+    - name: Download .NET install script
+      get_url:
+        url: https://dot.net/v1/dotnet-install.sh
+        dest: /tmp/dotnet-install.sh
+        mode: '0755'
+        force: 'yes'
+
+    - name: Run .NET install script
+      shell: /tmp/dotnet-install.sh  -version latest
+
     - name: Install base .NET packages
       become: true
       pacman:
         name:
-          - dotnet-sdk
           - mono-msbuild
 
     - name: Create netcoredbg directory

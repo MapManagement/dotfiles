@@ -41,12 +41,14 @@ alias ls="eza --icons always"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# yarn cargo
+# cargo path
 export PATH="$HOME/.cargo/env:$PATH"
 # yarn path
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # mason LSPs
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+# dotnet path
+export PATH="$HOME/.dotnet:$PATH"
 
 # needed for Neovim colors inside of tmux
 export TERM="xterm-256color"
