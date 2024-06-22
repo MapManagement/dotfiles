@@ -38,7 +38,8 @@
       shell: /tmp/sh.rustup.rs -y
 
     - name: Install rust-analyzer component
-      shell: rustup component add rust-analyzer 
+      shell: rustup component add rust-analyzer
+      ignore_errors: yes
 
     # === .NET installation === #
     - name: Download .NET install script
