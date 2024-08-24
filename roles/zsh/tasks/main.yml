@@ -14,10 +14,14 @@
     - name: Install oh-my-zsh
       shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    - name: Install Powerlevel10k
-      git:
-        repo: https://github.com/romkatv/powerlevel10k.git
-        dest: ~/.oh-my-zsh/custom/themes/powerlevel10k
+    - name: Install oh-my-posh
+      become: true
+      shell: curl -s https://ohmyposh.dev/install.sh | bash -s
+
+    - name: Copy oh-my-posh theme
+      copy:
+        src: ../files/zsh-theme.omp.json
+        dest: ~/.config/zsh-theme.omp.json
 
     - name: Copy .zshrc
       copy:
