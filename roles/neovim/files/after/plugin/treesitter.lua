@@ -6,13 +6,15 @@ require('nvim-treesitter.configs').setup {
 		"c_sharp",
 		"dockerfile",
 		"latex",
-		"markdown_inline",
 		"python",
 		"sql",
 		"yaml",
         "cpp",
         "html",
-        "json"
+        "json",
+        "markdown",
+        "markdown_inline",
+        "latex"
 	},
   	auto_install = true,
 	indent = {
