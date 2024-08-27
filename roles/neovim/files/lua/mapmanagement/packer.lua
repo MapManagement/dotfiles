@@ -54,6 +54,16 @@ return require("packer").startup(function(use)
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
     }
+    use({
+        'MeanderingProgrammer/markdown.nvim',
+        as = 'render-markdown',                             -- Only needed if you have another plugin named markdown.nvim
+        after = { 'nvim-treesitter' },
+        requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
+        --requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
+        config = function()
+            require('render-markdown').setup({})
+        end,
+    })
 
     use("lukas-reineke/indent-blankline.nvim")
     use("mbbill/undotree")
@@ -66,7 +76,7 @@ return require("packer").startup(function(use)
     use("nvim-tree/nvim-web-devicons")
     use {
         'akinsho/bufferline.nvim',
-        tag = "v3.*",
+        tag = "*",
         requires = 'nvim-tree/nvim-web-devicons'
     }
     use("ThePrimeagen/harpoon")
@@ -77,12 +87,12 @@ return require("packer").startup(function(use)
     use {
         "rcarriga/nvim-dap-ui",
         requires = { "mfussenegger/nvim-dap",
-                     "nvim-neotest/nvim-nio"
+            "nvim-neotest/nvim-nio"
         }
     }
 
     -- ==== rust ==== --
-    use ("simrat39/rust-tools.nvim")
+    use("simrat39/rust-tools.nvim")
     use {
         "rust-lang/rust.vim",
         ft = "rust",
