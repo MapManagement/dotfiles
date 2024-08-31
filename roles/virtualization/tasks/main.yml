@@ -13,21 +13,18 @@
         - dnsmasq
         - barrier
         - qemu-audio-pa
-    when: is_desktop == "yes"
 
   - name: Enable libvirt service
     become: true
     systemd:
       name: libvirtd
       enabled: yes
-    when: is_desktop == "yes"
 
   - name: Create libvirt group
     become: true
     group:
       name: libvirt
       state: present
-    when: is_desktop == "yes"
 
   - name: Add user to libvirt group
     become: true
@@ -35,14 +32,12 @@
       name: "{{ ansible_user_id }}" 
       groups: libvirt
       append: yes
-    when: is_desktop == "yes"
 
   - name: Copy libvirtd configuration file
     become: true
     copy:
       src: ../files/libvirtd.conf
       dest: /etc/libvirt/libvirtd.conf
-    when: is_desktop == "yes"
 
   - name: Restart libvirtd service
     become: true
@@ -50,4 +45,3 @@
       name: libvirtd
       state: restarted
       daemon_reload: yes
-    when: is_desktop == "yes"

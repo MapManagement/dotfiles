@@ -1,0 +1,13 @@
+---
+- block:
+    - name: Install needed packages
+      become: true
+      pacman:
+        name:
+          - bluez
+          - bluez-utils
+
+    - name: Enable bluetooth service
+      systemd:
+        name: bluetooth
+        enabled: yes 

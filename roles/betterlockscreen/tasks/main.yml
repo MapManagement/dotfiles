@@ -6,7 +6,6 @@
         dest: /tmp/i3lock-color
 
     - name: Install i3lock-color dependency
-      become: true
       script:
         cmd: /tmp/i3lock-color/install-i3lock-color.sh
 
@@ -44,11 +43,9 @@
         dest: /usr/lib/systemd/system/betterlockscreen@.service
 
     - name: Enable betterlockscreen service
-      systemd:
-        name: betterlockscreen
-        enable: true
-        state: started
-        scope: user
+      become: true
+      command: "systemctl enable betterlockscreen@{{ ansible_user_id }}"
+      ignore_errors: yes
 
     - name: Remove betterlockscreen directory
       file:

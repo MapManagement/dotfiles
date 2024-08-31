@@ -8,6 +8,7 @@
           - curl
           - fakeroot
           - unzip
+          - zip
           - nfs-utils
           - ripgrep
           - make
@@ -17,3 +18,5 @@
           - bc
           - base-devel
           - glibc
+          - usbutils
+          - xorg-xev

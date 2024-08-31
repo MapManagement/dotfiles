@@ -20,3 +20,10 @@
           - borg
           - python-llfuse
           - texlive-core
+          - nextcloud-client
+          - zoxide
+          - fzf
+          - xclip
+          - libsecret
+          - gnome-keyring
+          - eza
