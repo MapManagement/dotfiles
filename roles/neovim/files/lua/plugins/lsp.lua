@@ -14,11 +14,11 @@ return {
             { "onsails/lspkind.nvim" },
             { "Hoffs/omnisharp-extended-lsp.nvim" },
         },
-        
         config = function()
             -- ===== local variables =====
             local pid          = vim.fn.getpid()
             local cmp          = require("cmp")
+            local lspkind      = require("lspkind")
             local cmp_lsp      = require("cmp_nvim_lsp")
             local capabilities = vim.tbl_deep_extend(
                 "force",
@@ -27,6 +27,41 @@ return {
                 vim.lsp.protocol.make_client_capabilities(),
                 cmp_lsp.default_capabilities())
             local opts         = { noremap = true, silent = true }
+
+            -- ===== Completion =====
+            cmp.setup {
+                mapping = {
+                    ['<Tab>'] = cmp.mapping.select_next_item(),
+                    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+                    ['<CR>'] = cmp.mapping.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    })
+                },
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = "luasnip" },
+                    { name = "nvim_lua" },
+                    { name = "path" },
+                    { name = "vsnip" },
+                },
+                window = {
+                    completion = cmp.config.window.bordered(),
+                    documentation = cmp.config.window.bordered(),
+                },
+                snippet = {
+                    expand = function(args)
+                        vim.fn["vsnip#anonymous"](args.body)
+                    end,
+                },
+                formatting = {
+                    format = lspkind.cmp_format({
+                        mode = 'symbol',       -- show only symbol annotations
+                        maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+                    })
+                }
+            }
 
             -- ===== LSP keymaps =====
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -52,7 +87,6 @@ return {
                 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
                 vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-
             end
 
             -- ===== hover window configuration =====
@@ -70,9 +104,8 @@ return {
 
                 virtual_text = true,
                 signs = true,
-
                 underline = true,
-                update_in_insert = false,
+                update_in_insert = true,
                 severity_sort = false,
             })
 

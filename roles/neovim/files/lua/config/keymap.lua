@@ -4,11 +4,6 @@ vim.g.mapleader = " "
 -- netrw
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- format code
-vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
-end)
-
 -- buffer switching
 vim.keymap.set("n", "<C-n>", "<CMD>bnext<CR>", { noremap = false })
 vim.keymap.set("n", "<C-p>", "<CMD>bprevious<CR>", { noremap = false })
