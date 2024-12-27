@@ -2,7 +2,7 @@
 - block:
     - name: Download Catppuccin theme
       get_url:
-        url: https://github.com/catppuccin/gtk/releases/latest/download/Catppuccin-Macchiato-Standard-Sapphire-Dark.zip
+        url: https://github.com/catppuccin/gtk/releases/latest/download/catppuccin-macchiato-sapphire-standard+default.zip
         dest: ~/Downloads/Catppuccin-Macchiato.zip
 
     - name: Create theme directory
