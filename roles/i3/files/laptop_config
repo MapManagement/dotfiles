@@ -196,6 +196,8 @@ exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 exec_always --no-startup-id ~/.config/polybar/start_polybar.sh
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id killall cbatticon; cbatticon
+exec_always --no-startup-id nextcloud --background
+exec_always --no-startup-id dunst
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
