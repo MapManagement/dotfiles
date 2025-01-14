@@ -1,7 +1,13 @@
 ---
 - block:
-    - name: Install needed packages
+    - name: Install batsignal
       become: true
       pacman:
         name:
-          - cbatticon
+          - batsignal
+
+    - name: Enable batsignal service
+      systemd:
+        name: batsignal
+        enabled: yes
+        scope: user
