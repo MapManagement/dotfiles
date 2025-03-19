@@ -70,7 +70,7 @@ return {
             vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
             local on_attach = function(client, bufnr)
-                client.server_capabilities.semanticTokensProvider = nil
+                client.server_capabilities.semanticTokensProvider = false
                 local bufopts = { noremap = true, silent = true, buffer = bufnr }
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
                 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
