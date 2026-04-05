@@ -9,7 +9,6 @@ return {
             configs.setup({
                 ensure_installed = {
                     "bash",
-                    "lua",
                     "rust",
                     "c_sharp",
                     "dockerfile",
@@ -20,8 +19,6 @@ return {
                     "cpp",
                     "html",
                     "json",
-                    "markdown",
-                    "markdown_inline",
                 },
                 ignore_install = {
                 },

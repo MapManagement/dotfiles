@@ -2,6 +2,14 @@ return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
+    pickers = {
+        find_files = {
+            hidden = true
+        },
+        live_grep = {
+            hidden = true
+        }
+    },
     config = function()
         local builtin = require('telescope.builtin')
 

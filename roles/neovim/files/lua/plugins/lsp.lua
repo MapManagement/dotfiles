@@ -2,8 +2,8 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { "mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim", config = function() end },
+            { "williamboman/mason.nvim",          config = true },
+            { "williamboman/mason-lspconfig.nvim" },
             { "hrsh7th/nvim-cmp" },
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-path" },
@@ -15,6 +15,24 @@ return {
             { "Hoffs/omnisharp-extended-lsp.nvim" },
         },
         config = function()
+            -- ===== Mason setup =====
+            require("mason").setup()
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "omnisharp",
+                    "jedi_language_server",
+                    "marksman",
+                    "lua_ls",
+                    "dockerls",
+                    "docker_compose_language_service",
+                    "lemminx",
+                    "sqlls",
+                    "ansiblels",
+                    "clangd"
+                },
+                automatic_installation = true,
+            })
+
             -- ===== local variables =====
             local pid          = vim.fn.getpid()
             local cmp          = require("cmp")
@@ -22,7 +40,6 @@ return {
             local cmp_lsp      = require("cmp_nvim_lsp")
             local capabilities = vim.tbl_deep_extend(
                 "force",
-
                 {},
                 vim.lsp.protocol.make_client_capabilities(),
                 cmp_lsp.default_capabilities())
@@ -40,10 +57,10 @@ return {
                 },
                 sources = {
                     { name = 'nvim_lsp' },
-                    { name = "luasnip" },
+                    { name = "vsnip" },
                     { name = "nvim_lua" },
                     { name = "path" },
-                    { name = "vsnip" },
+                    { name = "buffer" },
                 },
                 window = {
                     completion = cmp.config.window.bordered(),
@@ -87,6 +104,8 @@ return {
                 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
                 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
                 vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+                vim.keymap.set('n', '<space>hi',
+                    function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, bufopts)
             end
 
             -- ===== hover window configuration =====
@@ -119,7 +138,7 @@ return {
             -- managed by rustacean plugin
 
             -- ===== C# /Omnisharp =====
-            require 'lspconfig'.omnisharp.setup {
+            vim.lsp.config('omnisharp', {
                 capabilities = capabilities,
                 on_attach = on_attach,
                 enable_editorconfig_support = true,
@@ -136,31 +155,31 @@ return {
                     "--hostPID",
                     tostring(pid)
                 }
-            }
+            })
 
             -- ===== Python / Jedi =====
-            require 'lspconfig'.jedi_language_server.setup {
+            vim.lsp.config('jedi_language_server', {
                 capabilities = capabilities,
                 on_attach = on_attach
-            }
+            })
 
             -- ===== Markdown / Marksman =====
-            require 'lspconfig'.marksman.setup {
+            vim.lsp.config('marksman', {
                 on_attach = on_attach,
                 capabilities = capabilities
 
-            }
+            })
 
             -- ===== Lua ====
-            require 'lspconfig'.lua_ls.setup {
+            vim.lsp.config('lua_ls', {
+                on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
-
                     Lua = {
                         runtime = {
                             version = 'LuaJIT',
                         },
                         diagnostics = {
-
                             globals = { 'vim' },
                         },
                         workspace = {
@@ -171,26 +190,47 @@ return {
                         },
                     },
                 },
-            }
+            })
 
             -- ===== Docker =====
-            require 'lspconfig'.dockerls.setup {}
-            require 'lspconfig'.docker_compose_language_service.setup {}
-
-            -- ===== lemminx =====
-            require 'lspconfig'.lemminx.setup {}
-
-            -- ===== SQL =====
-            require 'lspconfig'.sqlls.setup {}
-
-            -- ===== Ansible =====
-            require 'lspconfig'.ansiblels.setup {}
-
-            -- ===== C++ =====
-            require 'lspconfig'.clangd.setup {
+            vim.lsp.config('dockerls', {
                 on_attach = on_attach,
                 capabilities = capabilities
-            }
+            })
+            vim.lsp.config('docker_compose_language_service', {
+                on_attach = on_attach,
+                capabilities = capabilities
+            })
+
+            -- ===== lemminx =====
+            vim.lsp.config('lemminx', {
+                on_attach = on_attach,
+                capabilities = capabilities
+            })
+
+            -- ===== SQL =====
+            vim.lsp.config('sqlls', {
+                on_attach = on_attach,
+                capabilities = capabilities
+            })
+
+            -- ===== Ansible =====
+            vim.lsp.config('ansiblels', {
+                on_attach = on_attach,
+                capabilities = capabilities
+            })
+
+            -- ===== C++ =====
+            vim.lsp.config('clangd', {
+                on_attach = on_attach,
+                capabilities = capabilities
+            })
+
+            -- ===== Java =====
+            vim.lsp.config('jdtls', {
+                on_attach = on_attach,
+                capabilities = capabilities
+            })
         end,
     }
 }

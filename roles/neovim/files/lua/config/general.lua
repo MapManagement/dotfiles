@@ -19,7 +19,8 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.opt.colorcolumn = "100"
-vim.opt.textwidth = 100
+vim.opt_local.textwidth = 100
+vim.opt_local.formatoptions:append('t')
 
 vim.opt.termguicolors = true
 
